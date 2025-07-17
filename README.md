@@ -1,3 +1,12 @@
+Instalación Herramientas para gestion de modelos dockernizados:
+
+
+
+
+<img width="539" height="488" alt="image" src="https://github.com/user-attachments/assets/02a3af61-747d-4f5d-b394-4f59fec1d0e8" />
+
+
+
 Análisis modelos de LLM 
 Herramientas:
 HTOP
