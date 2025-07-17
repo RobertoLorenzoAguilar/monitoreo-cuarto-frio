@@ -34,8 +34,86 @@ mosquitto_sub -h 192.168.16.76 -t “prueba/robert”
 mosquitto_pub -h localhost -p 1883 -t "prueba/robert" -m "¡Hola MQTT desde Docker!"
 
 y se denerian ver en los nodos subscritos 
-<img width="442" height="528" alt="image" src="https://github.com/user-attachments/assets/44e9d496-de62-4af2-9507-d4156c96b79e" />
 
+
+<img width="442" height="106" alt="image" src="https://github.com/user-attachments/assets/cea14113-751f-4c07-bdb5-0d921c2f6d6b" />
+
+
+
+Se procede a prototipar con node-red
+
+Con el siguiente comando se   instala y corre node-red 
+docker run -d -p 1880:1880 --name mynodered nodered/node-red 
+
+
+desde la url en el explorador puedee entra para gesstionar cualquier tipo de trabejo
+
+
+CREAR CONTENEDOR PARA MONGO Y GESTIONARLO CON MONGOEXPRESS
+
+https://github.com/cataniamatt/mongodb-docker
+
+
+
+
+mongodbcompass 
+
+admin
+pass
+
+mongodb autentification
+
+
+
+
+LLMS info
+
+
+
+
+https://jggomezt.medium.com/building-local-ai-applications-integrating-docker-model-runner-genkit-and-langchain-d0dfb4a4dfa7
+
+
+install docker model run
+
+https://docs.docker.com/ai/model-runner/
+
+
+sudo apt-get update
+sudo apt-get install docker-model-plugin
+
+
+test instalacion
+
+
+docker model version
+docker model run ai/smollm2
+
+
+https://hub.docker.com/r/ai/smollm2
+
+
+ejemplo
+
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="http://localhost:12434/engines/v1",  # o según tu endpoint
+    api_key="local-key"  # cualquier texto, si el servidor local no requiere cl$
+)
+
+response = client.completions.create(
+   # model="ai/gemma3:latest",
+    model="ai/smollm2:360M-Q4_K_M",
+    prompt="¿Cómo preparo los chilaquiles?",
+    max_tokens=100,
+)
+
+print(response.choices[0].text)
+
+
+
+<img width="442" height="649" alt="image" src="https://github.com/user-attachments/assets/2f5addef-0507-4b0b-9712-a24956b6867c" />
 
 
 Instalación Herramientas para gestion de modelos dockernizados:
