@@ -63,6 +63,7 @@ pass
 
 mongodb autentification
 
+<img width="1412" height="862" alt="image" src="https://github.com/user-attachments/assets/739147f9-134d-43bb-8fcf-7dfffc9dc0f3" />
 
 
 <img width="623" height="321" alt="image" src="https://github.com/user-attachments/assets/1920c777-8930-4557-aaa2-a8ec98d6d479" />
