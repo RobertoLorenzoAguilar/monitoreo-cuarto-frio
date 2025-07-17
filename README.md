@@ -65,6 +65,10 @@ mongodb autentification
 
 
 
+<img width="623" height="321" alt="image" src="https://github.com/user-attachments/assets/1920c777-8930-4557-aaa2-a8ec98d6d479" />
+
+configurar web socket para establecer un canal de comunicacion mas eficiente con el dashboard de visualización
+
 
 LLMS info
 
