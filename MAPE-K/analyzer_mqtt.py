@@ -43,12 +43,12 @@ class Analyzer:
             if rule.feature == "humedad":
                 if rule.is_triggered(humedad):
                     alerts.append(
-                        f"Alerta de {rule.feature} fuera de rango ({humedad}) - {rule.alarm}"
+                        f"Alerta de {rule.feature} fuera de rango humedad:({humedad}) temperatura: ({temperature}) - {rule.alarm}"
                     )
-            elif rule.feature == "temperatura":
+            if rule.feature == "temperatura":
                 if rule.is_triggered(temperature):
                     alerts.append(
-                        f"Alerta de {rule.feature} fuera de rango ({temperature}) - {rule.alarm}"
+                        f"Alerta de {rule.feature} fuera de rango humedad:({humedad}) temperatura: ({temperature}) - {rule.alarm}"
                     )
         return alerts
 
