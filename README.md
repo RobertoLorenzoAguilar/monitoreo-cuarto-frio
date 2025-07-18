@@ -2,7 +2,7 @@ TODO:
 
 ** agregar comentario codigo **
 ** agregar client en vez de dev a produccion npm start  **
-** **
+** agregar lanzador de servicio **
 
 
 
