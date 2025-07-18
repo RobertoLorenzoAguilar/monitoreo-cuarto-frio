@@ -8,32 +8,42 @@ import mqtt from 'mqtt';
 function App() {
   const [temperatureData, setTemperatureData] = useState([]);
   const [humidityData, setHumidityData] = useState([]);
+  const [adviceMessage, setAdviceMessage] = useState('Esperando recomendación...');
 
   useEffect(() => {
-    const client = mqtt.connect('ws://192.168.10.175:9001'); // Asegúrate de que tu broker MQTT tiene WebSocket habilitado en ese puerto
+    const client = mqtt.connect('ws://192.168.10.175:9001'); // Asegúrate de que tu broker MQTT tiene WebSocket habilitado
 
     client.on('connect', () => {
       console.log('Conectado al broker MQTT');
-      client.subscribe('casa/temperatura'); // Asegúrate de que este es el topic correcto
+      client.subscribe('casa/temperatura');
+      client.subscribe('cuartofrio/recomendaciones'); // Nuevo topic para recomendaciones
     });
 
     client.on('message', (topic, message) => {
       try {
-        const newData = JSON.parse(message.toString());
+        if (topic === 'casa/temperatura') {
+          const newData = JSON.parse(message.toString());
 
-        setTemperatureData((prevData) => [
-          ...prevData,
-          { timestamp: newData.timestamp, value: newData.temperatura_c},
-        ]);
+          setTemperatureData((prevData) => [
+            ...prevData,
+            { timestamp: newData.timestamp, value: newData.temperatura_c },
+          ]);
 
-        setHumidityData((prevData) => [
-          ...prevData,
-          { timestamp: newData.timestamp, value: newData.humedad },
-        ]);
+          setHumidityData((prevData) => [
+            ...prevData,
+            { timestamp: newData.timestamp, value: newData.humedad },
+          ]);
 
-        console.log(newData);
+          console.log('Datos de sensor:', newData);
+        }
+
+        if (topic === 'cuartofrio/recomendaciones') {
+          const advice = message.toString();
+          setAdviceMessage(advice);
+          console.log('Recomendación recibida:', advice);
+        }
       } catch (err) {
-        console.error('Error al parsear el mensaje MQTT:', err);
+        console.error('Error al procesar mensaje MQTT:', err);
       }
     });
 
@@ -68,6 +78,15 @@ function App() {
           )}
         </div>
       </div>
+
+      {/* Widget para la recomendación */}
+      <div className="advice-widget">
+        <h2>Recomendación Técnica</h2>
+        <div className="advice-box">
+          <p>{adviceMessage}</p>
+        </div>
+      </div>
+
       <div className="charts">
         <LineCharts data={temperatureData} label="Temperature" />
         <LineCharts data={humidityData} label="Humidity" />
