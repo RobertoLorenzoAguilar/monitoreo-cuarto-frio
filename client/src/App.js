@@ -4,6 +4,8 @@ import LineCharts from './components/LineCharts';
 import TemperatureGauge from './components/TemperatureGauge';
 import HumidityGauge from './components/HumidityGauge';
 import mqtt from 'mqtt';
+import ReactMarkdown from 'react-markdown'
+
 
 function App() {
   const [temperatureData, setTemperatureData] = useState([]);
@@ -83,7 +85,7 @@ function App() {
       <div className="advice-widget">
         <h2>Recomendación Técnica</h2>
         <div className="advice-box">
-          <p>{adviceMessage}</p>
+          <ReactMarkdown>{adviceMessage}</ReactMarkdown>
         </div>
       </div>
 
