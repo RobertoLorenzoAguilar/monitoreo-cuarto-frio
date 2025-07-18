@@ -17,13 +17,13 @@ function App() {
 
     client.on('connect', () => {
       console.log('Conectado al broker MQTT');
-      client.subscribe('casa/temperatura');
+      client.subscribe('cuartofrio/sensor');
       client.subscribe('cuartofrio/recomendaciones'); // Nuevo topic para recomendaciones
     });
 
     client.on('message', (topic, message) => {
       try {
-        if (topic === 'casa/temperatura') {
+        if (topic === 'cuartofrio/sensor') {
           const newData = JSON.parse(message.toString());
 
           setTemperatureData((prevData) => [

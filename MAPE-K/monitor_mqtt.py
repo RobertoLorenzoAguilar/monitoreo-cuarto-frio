@@ -6,7 +6,7 @@ import paho.mqtt.client as mqtt
 from pymongo import MongoClient
 
 class MQTTMonitor:
-    def __init__(self, broker='192.168.10.175', port=1883, topic='casa/temperatura'):
+    def __init__(self, broker='192.168.10.175', port=1883, topic='cuartofrio/sensor'):
         self.broker = broker
         self.port = port
         self.topic = topic
