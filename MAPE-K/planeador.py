@@ -20,7 +20,7 @@ def plan_actions():
                 # Salimos del bucle si una alerta activa una acción
                 return
         else:
-            print("✅ Todo en orden, sin alertas.")
+            print(" Todo en orden, sin alertas.")
             execute.execute_action("Todo bien")  # Si no hay alertas, todo está bien
 
         # Esperar un poco antes de volver a analizar
