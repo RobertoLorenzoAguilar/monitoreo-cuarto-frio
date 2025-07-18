@@ -69,7 +69,7 @@ def execute_action(alert_messages, correcto):
                 print("Ejecutando acción genérica...")
     else:
         print("Valores del Sensor dentro del rango seguro...")
-        mqtt_client.publish(MQTT_TOPIC, "todo en orden")
+        mqtt_client.publish(MQTT_TOPIC, "Valores del sensor dentro del rango seguro...")
         
 
 # === Extraer humedad y temperatura de la alerta ===
