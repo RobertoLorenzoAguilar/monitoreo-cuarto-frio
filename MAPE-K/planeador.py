@@ -16,8 +16,11 @@ def plan_actions():
             #for alert in alerts:
                 # Esperar antes de realizar la siguiente consulta a la API
                 # time.sleep(10)  # Espera 10 segundos antes de la siguiente pregunta
-            execute.execute_action(alerts)  # Pasa la alerta al ejecutor
+            execute.execute_action(alerts, False)  # Pasa la alerta al ejecutor
                 # Salimos del bucle si una alerta activa una acción
+        else:
+             execute.execute_action(alerts , True)  # Pasa la alerta al ejecutor
+            
                 # return
         # else:
         #     print(" Todo en orden, sin alertas.")

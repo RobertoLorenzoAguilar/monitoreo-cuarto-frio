@@ -32,40 +32,45 @@ def get_chat_completion(user_prompt):
         return ""
 
 # === Función principal para procesar alertas y publicar MQTT ===
-def execute_action(alert_messages):
-    print(f"Mensajes recibidos: {alert_messages}")
+def execute_action(alert_messages, correcto):
+    if (correcto ==False):
+        print(f"Mensajes recibidos: {alert_messages}")
 
-    humedad, temperatura = valor_parametro(alert_messages[0])
+        humedad, temperatura = valor_parametro(alert_messages[0])
 
-    user_prompt = f"""
-    Eres un experto en bioseguridad y conservación de vacunas veterinarias. Estás monitoreando un cuarto frío con sensores de temperatura y humedad.
+        user_prompt = f"""
+        Eres un experto en bioseguridad y conservación de vacunas veterinarias. Estás monitoreando un cuarto frío con sensores de temperatura y humedad.
 
-    Se recibieron las siguientes alertas:
-    {chr(10).join(alert_messages)}
+        Se recibieron las siguientes alertas:
+        {chr(10).join(alert_messages)}
 
-    Valores actuales:
-    - Temperatura: {temperatura} °C
-    - Humedad: {humedad} %
+        Valores actuales:
+        - Temperatura: {temperatura} °C
+        - Humedad: {humedad} %
 
-    Evalúa la situación y proporciona recomendaciones técnicas para corregir cualquier problema detectado.
-    """
+        Evalúa la situación y proporciona recomendaciones técnicas para corregir cualquier problema detectado.
+        """
 
-    advice = get_chat_completion(user_prompt)
+        advice = get_chat_completion(user_prompt)
 
-    if advice:
-        print(f"\n✅ Recomendación generada:\n{advice}\n")
-        mqtt_client.publish(MQTT_TOPIC, advice)
-        print(f"📡 Recomendación publicada en MQTT: {MQTT_TOPIC}")
-    else:
-        print("⚠️ No se pudo generar una recomendación. No se publicará nada.")
-
-    for alert in alert_messages:
-        if "Temperatura fuera de rango" in alert:
-            print("⚙️ Ejecutando acción para controlar la temperatura...")
-        elif "Humedad fuera de rango" in alert:
-            print("⚙️ Ejecutando acción para ajustar la humedad...")
+        if advice:
+            print(f"\n Recomendación generada:\n{advice}\n")
+            mqtt_client.publish(MQTT_TOPIC, advice)
+            print(f"Recomendación publicada en MQTT: {MQTT_TOPIC}")
         else:
-            print("⚙️ Ejecutando acción genérica...")
+            print("No se pudo generar una recomendación. No se publicará nada.")
+
+        for alert in alert_messages:
+            if "Temperatura fuera de rango" in alert:
+                print("Ejecutando acción para controlar la temperatura...")
+            elif "Humedad fuera de rango" in alert:
+                print("Ejecutando acción para ajustar la humedad...")
+            else:
+                print("Ejecutando acción genérica...")
+    else:
+        print("Valores del Sensor dentro del rango seguro...")
+        mqtt_client.publish(MQTT_TOPIC, "todo en orden")
+        
 
 # === Extraer humedad y temperatura de la alerta ===
 def valor_parametro(mensaje):
@@ -73,7 +78,7 @@ def valor_parametro(mensaje):
     if coincidencia:
         return float(coincidencia.group(1)), float(coincidencia.group(2))
     else:
-        print("❌ No se encontraron valores de humedad/temperatura.")
+        print(" No se encontraron valores de humedad/temperatura.")
         return None, None
 
 # === Ejemplo de ejecución directa ===
