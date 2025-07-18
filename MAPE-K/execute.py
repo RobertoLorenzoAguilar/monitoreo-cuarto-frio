@@ -1,13 +1,23 @@
 from openai import OpenAI
+import paho.mqtt.client as mqtt
 import re
 
-# Crear cliente para modelo local en localhost
+# === Configuración MQTT ===
+MQTT_BROKER = "192.168.10.175"         # Cambiar si tu broker está en otro host
+MQTT_PORT = 1883                  # O 9001 si usas WebSocket
+MQTT_TOPIC = "cuartofrio/recomendaciones"
+
+# Crear cliente MQTT y conectar
+mqtt_client = mqtt.Client()
+mqtt_client.connect(MQTT_BROKER, MQTT_PORT, 60)
+
+# === Cliente del modelo local ===
 client = OpenAI(
     base_url="http://localhost:12434/engines/v1",
     api_key="local-key"
 )
 
-# Función para obtener la respuesta del modelo local
+# === Función para obtener la respuesta del modelo local ===
 def get_chat_completion(user_prompt):
     response = client.chat.completions.create(
         model="ai/llama3.2:3B-Q4_0",
@@ -16,7 +26,7 @@ def get_chat_completion(user_prompt):
     )
     return response.choices[0].message.content.strip()
 
-# Función principal para procesar alertas
+# === Función principal para procesar alertas y publicar ===
 def execute_action(alert_messages):
     print(f"Mensajes recibidos: {alert_messages}")
 
@@ -39,6 +49,10 @@ def execute_action(alert_messages):
     advice = get_chat_completion(user_prompt)
     print(f"Respuesta del modelo local:\n{advice}")
 
+    # Publicar el consejo por MQTT
+    mqtt_client.publish(MQTT_TOPIC, advice)
+    print(f"Consejo publicado a MQTT topic '{MQTT_TOPIC}'")
+
     # Acciones automáticas según tipo de alerta
     for alert in alert_messages:
         if "Temperatura fuera de rango" in alert:
@@ -48,7 +62,7 @@ def execute_action(alert_messages):
         else:
             print("Ejecutando acción genérica...")
 
-# Extraer valores de humedad y temperatura
+# === Función para extraer humedad y temperatura de la alerta ===
 def valor_parametro(mensaje):
     coincidencia = re.search(r'humedad:\(([^)]+)\).*temperatura:\s*\(([^)]+)\)', mensaje)
     if coincidencia:
@@ -58,3 +72,11 @@ def valor_parametro(mensaje):
     else:
         print("No se encontraron los valores.")
         return None, None
+
+# === Ejemplo de uso ===
+if __name__ == "__main__":
+    alertas = [
+        "Alerta de humedad fuera de rango humedad:(67.5) temperatura: (9.1) - Nivel crítico",
+        "Alerta de temperatura fuera de rango humedad:(67.5) temperatura: (9.1) - Nivel crítico"
+    ]
+    execute_action(alertas)
