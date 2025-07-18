@@ -1,3 +1,10 @@
+TODO:
+
+** agregar comentario codigo **
+** agregar client en vez de dev a produccion npm start  **
+** **
+
+
 
 Se genera un contenedor a partir d ela imagen eclipse-mosquitto
 docker run -d --name mosquitto-container 1883:1883 -p 9001:9001 eclipse-mosquitto
