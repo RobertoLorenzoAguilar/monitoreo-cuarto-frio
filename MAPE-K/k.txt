@@ -1,2 +1,2 @@
-[temperatura,30,60,anormal_temperatura]
-[humedad,0,8,anormal_humedad]
+[temperatura,0,8,anormal_temperatura]
+[humedad,30,60,anormal_humedad]
