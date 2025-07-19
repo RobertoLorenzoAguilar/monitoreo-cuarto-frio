@@ -28,172 +28,179 @@ Sistema de monitoreo para cámaras frigoríficas que integra IoT, análisis  y r
 
 ## Arquitectura del Sistema 🏗️
 
-```mermaid
-graph TD
-    A[Sensores IoT] -->|Datos| B[Backend Python]
-    B --> C[(Base de Datos NoSQL)]
-    B --> D[Dashboard Web]
-    D -->|WebSockets| B
-    B --> E[Modelo LLM]
-    E -->|Recomendaciones| D
-    C --> F[Análisis MAPE-K]
-    F --> B
-<img width="1489" height="870" alt="image" src="https://github.com/user-attachments/assets/a38aa4a7-8ebf-463f-8015-c9bfb29769db" />
 
-<img width="1416" height="846" alt="image" src="https://github.com/user-attachments/assets/609aa1cc-0dd8-41d8-86f8-df881c86df30" />
+# Sistema de Monitoreo Inteligente con Contenedores
 
-Recomendación en caso de que los parametros no esten dentro de los rangos seguros.
+Este repositorio documenta el despliegue de un sistema distribuido para monitoreo inteligente de condiciones ambientales, integración con actuadores físicos, visualización en tiempo real y procesamiento con LLMs de forma local.
 
-<img width="656" height="945" alt="image" src="https://github.com/user-attachments/assets/6acac98e-9750-4756-86c4-c15d226acd64" />
+---
 
-Arquitectura distribución contedores:
-<img width="1055" height="720" alt="image" src="https://github.com/user-attachments/assets/3ee01b48-c806-493b-ab15-6cc4c0a5dcb0" />
+## 🧠 Recomendaciones de Seguridad
 
+> Se activa una alerta cuando los parámetros **no** están dentro de los rangos definidos como seguros.
 
+<img width="656" height="945" alt="Recomendación de seguridad" src="https://github.com/user-attachments/assets/6acac98e-9750-4756-86c4-c15d226acd64" />
 
+---
 
-NICE TO DO: 
-** agregar comentario codigo **
-** agregar client en vez de dev a produccion npm start  **
-** agregar lanzador de servicio **
-** agregar alerttado not telegram **
-** agregar un actuador fisico como un foco o semaforo por si hay valores fuera de los rangos **
+## 🏗️ Arquitectura General
 
+> Diagrama de distribución y comunicación entre contenedores y servicios.
 
+<img width="1055" height="720" alt="Arquitectura" src="https://github.com/user-attachments/assets/3ee01b48-c806-493b-ab15-6cc4c0a5dcb0" />
 
-Se genera un contenedor a partir d ela imagen eclipse-mosquitto
-docker run -d --name mosquitto-container 1883:1883 -p 9001:9001 eclipse-mosquitto
+---
 
+## 🚧 NICE TO DO
 
-se accede al contenedor para configurar el servicio 
+- [ ] Comentar adecuadamente el código fuente.
+- [ ] Ejecutar cliente en modo producción (`npm start`) en lugar de `dev`.
+- [ ] Crear un lanzador de servicios.
+- [ ] Integrar sistema de alertas vía Telegram.
+- [ ] Activar un actuador físico (foco o semáforo) si hay valores fuera de rango.
 
-docker exec -it mosquitto_agosto /bin/sh
+---
 
-para instalar en el contenedor nano y poder editar la configuración del servidor de mosquitto
-apk update
-apk add nano
+## 🐳 Mosquitto en Docker
 
-se edita el siguiente archivo
+1. **Crear contenedor Mosquitto**:
+
+```bash
+docker run -d --name mosquitto-container -p 1883:1883 -p 9001:9001 eclipse-mosquitto
+```
+
+2. **Acceder al contenedor**:
+
+```bash
+docker exec -it mosquitto-container /bin/sh
+```
+
+3. **Instalar herramientas para edición**:
+
+```bash
+apk update && apk add nano
+```
+
+4. **Editar configuración**:
+
+```bash
 nano mosquitto/config/mosquitto.conf
+```
 
-se ubican en el archivo las siguientes líneas
+Descomenta y configura lo siguiente:
 
-se descomentan y setean los siguientes paramentros
+```
 allow_anonymous true
 listener 1883 0.0.0.0
+```
 
-una vez hecho esto se sale del contenedor
+5. **Reiniciar contenedor**:
 
-y reinicia
-
+```bash
 docker restart mosquitto-container
+```
 
+6. **Prueba de suscripción/publicación MQTT**:
 
-se instala la librería de donde se encuentra para probar de mqtt cliente
-
-mosquitto_sub -h 192.168.16.76 -t “prueba/robert”
-
+```bash
+mosquitto_sub -h 192.168.16.76 -t "prueba/robert"
 mosquitto_pub -h localhost -p 1883 -t "prueba/robert" -m "¡Hola MQTT desde Docker!"
+```
 
-y se denerian ver en los nodos subscritos 
+---
 
+## 🧰 Node-RED
 
-<img width="442" height="106" alt="image" src="https://github.com/user-attachments/assets/cea14113-751f-4c07-bdb5-0d921c2f6d6b" />
+1. **Ejecutar Node-RED en contenedor**:
 
+```bash
+docker run -d -p 1880:1880 --name mynodered nodered/node-red
+```
 
+2. **Gestionar flujos** desde el navegador:
+```
+http://localhost:1880/
+```
 
-Se procede a prototipar con node-red
+---
 
-Con el siguiente comando se   instala y corre node-red 
-docker run -d -p 1880:1880 --name mynodered nodered/node-red 
+## 🧱 MongoDB + Mongo Express
 
+Repositorio sugerido: [cataniamatt/mongodb-docker](https://github.com/cataniamatt/mongodb-docker)
 
-desde la url en el explorador puedee entra para gesstionar cualquier tipo de trabejo
+Autenticación sugerida para MongoDB Compass:
+- **Usuario:** admin
+- **Contraseña:** pass
 
+<img width="623" height="321" alt="MongoDB Compass" src="https://github.com/user-attachments/assets/1920c777-8930-4557-aaa2-a8ec98d6d479" />
 
-CREAR CONTENEDOR PARA MONGO Y GESTIONARLO CON MONGOEXPRESS
+---
 
-https://github.com/cataniamatt/mongodb-docker
+## 🌐 Comunicación WebSocket
 
+Configurar WebSocket para una comunicación eficiente con el dashboard de visualización en tiempo real.
 
+---
 
+## 🤖 LLMs Locales con Docker
 
-mongodbcompass 
+Guía útil: [Medium - Integrando Genkit y LangChain](https://jggomezt.medium.com/building-local-ai-applications-integrating-docker-model-runner-genkit-and-langchain-d0dfb4a4dfa7)
 
-admin
-pass
+### Instalación del plugin de modelos:
 
-mongodb autentification
-
-<img width="1412" height="862" alt="image" src="https://github.com/user-attachments/assets/739147f9-134d-43bb-8fcf-7dfffc9dc0f3" />
-
-
-<img width="623" height="321" alt="image" src="https://github.com/user-attachments/assets/1920c777-8930-4557-aaa2-a8ec98d6d479" />
-
-configurar web socket para establecer un canal de comunicacion mas eficiente con el dashboard de visualización
-
-
-LLMS info
-
-
-
-
-https://jggomezt.medium.com/building-local-ai-applications-integrating-docker-model-runner-genkit-and-langchain-d0dfb4a4dfa7
-
-
-install docker model run
-
-https://docs.docker.com/ai/model-runner/
-
-
+```bash
 sudo apt-get update
 sudo apt-get install docker-model-plugin
+```
 
+### Probar instalación:
 
-test instalacion
-
-
+```bash
 docker model version
 docker model run ai/smollm2
+```
 
+Modelo en DockerHub: [ai/smollm2](https://hub.docker.com/r/ai/smollm2)
 
-https://hub.docker.com/r/ai/smollm2
+### Ejemplo de uso:
 
-
-ejemplo
-
+```python
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="http://localhost:12434/engines/v1",  # o según tu endpoint
-    api_key="local-key"  # cualquier texto, si el servidor local no requiere cl$
+    base_url="http://localhost:12434/engines/v1",
+    api_key="local-key"
 )
 
 response = client.completions.create(
-   # model="ai/gemma3:latest",
     model="ai/smollm2:360M-Q4_K_M",
     prompt="¿Cómo preparo los chilaquiles?",
     max_tokens=100,
 )
 
 print(response.choices[0].text)
+```
 
+---
 
+## 📊 Herramientas de Monitoreo
 
-<img width="442" height="649" alt="image" src="https://github.com/user-attachments/assets/2f5addef-0507-4b0b-9712-a24956b6867c" />
+- `htop` para supervisar consumo del modelo.
+- Evaluar coherencia de las respuestas.
+- Listar modelos disponibles:
 
-
-Instalación Herramientas para gestion de modelos dockernizados:
-
-<img width="539" height="488" alt="image" src="https://github.com/user-attachments/assets/02a3af61-747d-4f5d-b394-4f59fec1d0e8" />
-
-Análisis modelos de LLM 
-Herramientas:
-HTOP
-Coherencia en respuestas
-
+```bash
 docker model list
+```
 
-como puede apreciarse tenemos instalados dos modelos diferentes.
+<img width="1611" height="996" alt="Modelos listados" src="https://github.com/user-attachments/assets/fb8d5a8c-6e6a-45af-844b-07ee64ee251e" />
 
-<img width="1611" height="996" alt="image" src="https://github.com/user-attachments/assets/fb8d5a8c-6e6a-45af-844b-07ee64ee251e" />
+---
+
+## 📸 Vistas del Proyecto
+
+Dashboard:
+
+<img width="1489" height="870" alt="Dashboard 1" src="https://github.com/user-attachments/assets/a38aa4a7-8ebf-463f-8015-c9bfb29769db" />
+<img width="1416" height="846" alt="Dashboard 2" src="https://github.com/user-attachments/assets/609aa1cc-0dd8-41d8-86f8-df881c86df30" />
+
