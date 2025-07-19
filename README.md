@@ -8,11 +8,12 @@ Recomendación en caso de que los parametros no esten dentro de los rangos segur
 <img width="656" height="945" alt="image" src="https://github.com/user-attachments/assets/6acac98e-9750-4756-86c4-c15d226acd64" />
 
 
-TODO:
-
+NICE TO DO: 
 ** agregar comentario codigo **
 ** agregar client en vez de dev a produccion npm start  **
 ** agregar lanzador de servicio **
+** agregar alerttado not telegram **
+** agregar un actuador fisico como un foco o semaforo por si hay valores fuera de los rangos **
 
 
 
