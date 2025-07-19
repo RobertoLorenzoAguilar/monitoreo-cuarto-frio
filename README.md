@@ -11,9 +11,9 @@ Sistema de monitoreo para cámaras frigoríficas que integra IoT, análisis  y r
 
 - **Monitoreo en Tiempo Real** de temperatura y humedad mediante sensores IoT
 - **Dashboard** con visualización de datos históricos y actuales
-- **Sistema de Alertas Inteligente** que solo notifica cuando los parámetros salen de rangos seguros
+- **Sistema de Alertas** que solo notifica cuando los parámetros salen de rangos seguros
 - **Recomendaciones Técnicas Automatizadas** generadas por un modelo LLM local
-- **Arquitectura MAPE-K** (Monitor, Analyze, Plan, Execute - Knowledge) para gestión adaptativa
+- **Arquitectura MAPE-K** (Monitor, Analyze, Plan, Execute - Knowledge) para gestión
 - **Comunicación Bidireccional** mediante WebSockets para actualizaciones instantáneas
 - **Base de Datos No Relacional** para almacenamiento eficiente de series temporales
 
