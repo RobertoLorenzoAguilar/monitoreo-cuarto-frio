@@ -1,0 +1,4 @@
+# Ignorar node_modules y carpetas de caché
+**/node_modules/
+**/.cache/
+**/*.pack

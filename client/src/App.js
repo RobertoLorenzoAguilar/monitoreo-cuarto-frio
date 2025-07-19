@@ -4,38 +4,40 @@ import LineCharts from './components/LineCharts';
 import TemperatureGauge from './components/TemperatureGauge';
 import HumidityGauge from './components/HumidityGauge';
 import mqtt from 'mqtt';
-import ReactMarkdown from 'react-markdown'
-
+import ReactMarkdown from 'react-markdown';
 
 function App() {
   const [temperatureData, setTemperatureData] = useState([]);
   const [humidityData, setHumidityData] = useState([]);
   const [adviceMessage, setAdviceMessage] = useState('Esperando recomendación...');
+  const [lastUpdate, setLastUpdate] = useState('');
 
   useEffect(() => {
-    const client = mqtt.connect('ws://192.168.10.175:9001'); // Asegúrate de que tu broker MQTT tiene WebSocket habilitado
+    const client = mqtt.connect('ws://192.168.10.175:9001');
 
     client.on('connect', () => {
       console.log('Conectado al broker MQTT');
       client.subscribe('cuartofrio/sensor');
-      client.subscribe('cuartofrio/recomendaciones'); // Nuevo topic para recomendaciones
+      client.subscribe('cuartofrio/recomendaciones');
     });
 
     client.on('message', (topic, message) => {
       try {
         if (topic === 'cuartofrio/sensor') {
           const newData = JSON.parse(message.toString());
+          const timestamp = new Date().toLocaleTimeString();
 
           setTemperatureData((prevData) => [
             ...prevData,
-            { timestamp: newData.timestamp, value: newData.temperatura_c },
+            { timestamp, value: newData.temperatura_c },
           ]);
 
           setHumidityData((prevData) => [
             ...prevData,
-            { timestamp: newData.timestamp, value: newData.humedad },
+            { timestamp, value: newData.humedad },
           ]);
 
+          setLastUpdate(timestamp);
           console.log('Datos de sensor:', newData);
         }
 
@@ -56,42 +58,61 @@ function App() {
   }, []);
 
   return (
-    <div className="container">
-      <header>
-        <h1>Sensor Data Dashboard</h1>
+    <div className="dashboard-container">
+      <header className="dashboard-header">
+        <h1>Monitoreo de Cuarto Frío</h1>
+        <div className="status-indicator">
+          <span className="status-dot"></span>
+          <span>Conectado</span>
+          <span className="last-update">Última actualización: {lastUpdate}</span>
+        </div>
       </header>
-      <div className="sensor-data">
-        <div className="sensor-data-item">
-          <h2>Timestamp</h2>
-          <p>{temperatureData.length > 0 && temperatureData[temperatureData.length - 1].timestamp}</p>
-        </div>
-        <div className="sensor-data-item">
-          <h2>Temperatura</h2>
-          <p>{temperatureData.length > 0 && temperatureData[temperatureData.length - 1].value} °C</p>
-          {temperatureData.length > 0 && typeof temperatureData[temperatureData.length - 1].value === 'number' && (
-            <TemperatureGauge value={temperatureData[temperatureData.length - 1].value} />
-          )}
-        </div>
-        <div className="sensor-data-item">
-          <h2>Humedad</h2>
-          <p>{humidityData.length > 0 && humidityData[humidityData.length - 1].value} %</p>
-          {humidityData.length > 0 && typeof humidityData[humidityData.length - 1].value === 'number' && (
-            <HumidityGauge value={humidityData[humidityData.length - 1].value} />
-          )}
-        </div>
-      </div>
 
-      {/* Widget para la recomendación */}
-      <div className="advice-widget">
-        <h2>Recomendación Técnica</h2>
-        <div className="advice-box">
-          <ReactMarkdown>{adviceMessage}</ReactMarkdown>
-        </div>
-      </div>
+      <div className="dashboard-grid">
+        {/* Sección de medidores */}
+        <div className="gauges-section">
+          <div className="gauge-card temperature-card">
+            <h2>Temperatura Actual</h2>
+            <div className="gauge-value">
+              {temperatureData.length > 0 && temperatureData[temperatureData.length - 1].value} °C
+            </div>
+            {temperatureData.length > 0 && typeof temperatureData[temperatureData.length - 1].value === 'number' && (
+              <TemperatureGauge value={temperatureData[temperatureData.length - 1].value} />
+            )}
+          </div>
 
-      <div className="charts">
-        <LineCharts data={temperatureData} label="Temperature" />
-        <LineCharts data={humidityData} label="Humidity" />
+          <div className="gauge-card humidity-card">
+            <h2>Humedad Actual</h2>
+            <div className="gauge-value">
+              {humidityData.length > 0 && humidityData[humidityData.length - 1].value} %
+            </div>
+            {humidityData.length > 0 && typeof humidityData[humidityData.length - 1].value === 'number' && (
+              <HumidityGauge value={humidityData[humidityData.length - 1].value} />
+            )}
+          </div>
+        </div>
+
+        {/* Sección de recomendación */}
+        <div className="advice-section">
+          <div className="advice-card">
+            <h2>Recomendación Técnica</h2>
+            <div className="advice-content">
+              <ReactMarkdown>{adviceMessage}</ReactMarkdown>
+            </div>
+          </div>
+        </div>
+
+        {/* Sección de gráficos */}
+        <div className="charts-section">
+          <div className="chart-card">
+            <h3>Historial de Temperatura (°C)</h3>
+            <LineCharts data={temperatureData} label="Temperatura" color="#FF6B6B" />
+          </div>
+          <div className="chart-card">
+            <h3>Historial de Humedad (%)</h3>
+            <LineCharts  data={humidityData} label="Humedad" color="#4D96FF" />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,28 +1,22 @@
-
-
-  /* recomendacion apartado */
 :root {
-  --primary-color: #37474F;
-  --secondary-color: #546E7A;
-  --accent-color: #607D8B;
-  --temperature-color: #FF5252;
-  --humidity-color: #448AFF;
-  --success-color: #4CAF50;
-  --warning-color: #FF9800;
-  --text-color: #263238;
-  --text-secondary: #455A64;
-  --card-bg: #ECEFF1;
-  --background-color: #F5F5F5;
-  --border-color: #CFD8DC;
+  --primary-color: #2C3E50;
+  --secondary-color: #34495E;
+  --accent-color: #3498DB;
+  --temperature-color: #E74C3C;
+  --humidity-color: #2980B9;
+  --success-color: #2ECC71;
+  --warning-color: #F39C12;
+  --text-color: #ECF0F1;
+  --text-secondary: #BDC3C7;
+  --card-bg: #34495E;
 }
 
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--background-color);
+  background-color: #1A1A1A;
   color: var(--text-color);
 }
-
 
 .dashboard-container {
   padding: 20px;
