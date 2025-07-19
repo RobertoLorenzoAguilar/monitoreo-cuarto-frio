@@ -1,3 +1,8 @@
+
+<img width="1489" height="870" alt="image" src="https://github.com/user-attachments/assets/084f18e6-2c4f-4d64-9d36-af8b98620ab0" />
+
+
+
 TODO:
 
 ** agregar comentario codigo **
