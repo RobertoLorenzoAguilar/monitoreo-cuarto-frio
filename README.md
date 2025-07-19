@@ -3,6 +3,10 @@ Tablero Visualización en tiempo real sensor humedad/temperatura
 
 <img width="1416" height="846" alt="image" src="https://github.com/user-attachments/assets/609aa1cc-0dd8-41d8-86f8-df881c86df30" />
 
+Recomendación en caso de que los parametros no esten dentro de los rangos seguros.
+
+<img width="656" height="945" alt="image" src="https://github.com/user-attachments/assets/6acac98e-9750-4756-86c4-c15d226acd64" />
+
 
 TODO:
 
