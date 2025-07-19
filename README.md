@@ -7,6 +7,11 @@ Recomendación en caso de que los parametros no esten dentro de los rangos segur
 
 <img width="656" height="945" alt="image" src="https://github.com/user-attachments/assets/6acac98e-9750-4756-86c4-c15d226acd64" />
 
+Arquitectura distribución contedores:
+<img width="1055" height="720" alt="image" src="https://github.com/user-attachments/assets/3ee01b48-c806-493b-ab15-6cc4c0a5dcb0" />
+
+
+
 
 NICE TO DO: 
 ** agregar comentario codigo **
