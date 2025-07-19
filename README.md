@@ -5,7 +5,7 @@ Tablero Visualización en tiempo real sensor humedad/temperatura
 [![IoT](https://img.shields.io/badge/IoT-Enabled-green)](https://en.wikipedia.org/wiki/Internet_of_things)
 [![Real-time](https://img.shields.io/badge/Real--time-WebSockets-orange)](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
-Sistema de monitoreo inteligente para cámaras frigoríficas que integra IoT, análisis predictivo y recomendaciones técnicas mediante IA.
+Sistema de monitoreo inteligente para cámaras frigoríficas que integra IoT, análisis  y recomendaciones técnicas mediante IA.
 
 ## Características Principales 🚀
 
