@@ -5,12 +5,12 @@ Tablero Visualización en tiempo real sensor humedad/temperatura
 [![IoT](https://img.shields.io/badge/IoT-Enabled-green)](https://en.wikipedia.org/wiki/Internet_of_things)
 [![Real-time](https://img.shields.io/badge/Real--time-WebSockets-orange)](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
-Sistema de monitoreo inteligente para cámaras frigoríficas que integra IoT, análisis  y recomendaciones técnicas mediante IA.
+Sistema de monitoreo para cámaras frigoríficas que integra IoT, análisis  y recomendaciones técnicas mediante IA.
 
 ## Características Principales 🚀
 
 - **Monitoreo en Tiempo Real** de temperatura y humedad mediante sensores IoT
-- **Dashboard Interactivo** con visualización de datos históricos y actuales
+- **Dashboard** con visualización de datos históricos y actuales
 - **Sistema de Alertas Inteligente** que solo notifica cuando los parámetros salen de rangos seguros
 - **Recomendaciones Técnicas Automatizadas** generadas por un modelo LLM local
 - **Arquitectura MAPE-K** (Monitor, Analyze, Plan, Execute - Knowledge) para gestión adaptativa
@@ -20,8 +20,8 @@ Sistema de monitoreo inteligente para cámaras frigoríficas que integra IoT, an
 ## Tecnologías Clave 🔧
 
 - **Backend**: Python 3.8+ (FastAPI/Flask)
-- **Frontend**: Dashboard con Plotly Dash/Streamlit
-- **Base de Datos**: MongoDB/InfluxDB
+- **Frontend**: react
+- **Base de Datos**: MongoDB
 - **IoT**: Protocolos MQTT/HTTP para comunicación con sensores
 - **IA**: Modelo LLM en contenedor Docker para generación de recomendaciones
 - **Infraestructura**: Contenedores Docker para despliegue escalable
