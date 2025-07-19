@@ -91,7 +91,12 @@ Descomenta y configura lo siguiente:
 
 ```
 allow_anonymous true
+
 listener 1883 0.0.0.0
+protocol mqtt
+
+listener 9001
+protocol websockets
 ```
 
 5. **Reiniciar contenedor**:
