@@ -1,4 +1,8 @@
+Tablero Visualización en tiempo real sensor humedad/temperatura
 <img width="1489" height="870" alt="image" src="https://github.com/user-attachments/assets/a38aa4a7-8ebf-463f-8015-c9bfb29769db" />
+
+<img width="1416" height="846" alt="image" src="https://github.com/user-attachments/assets/609aa1cc-0dd8-41d8-86f8-df881c86df30" />
+
 
 TODO:
 
