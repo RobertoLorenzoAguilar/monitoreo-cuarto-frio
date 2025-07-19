@@ -1,4 +1,43 @@
 Tablero Visualización en tiempo real sensor humedad/temperatura
+# IoT Cold Room Monitoring System 🌡️💧
+
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
+[![IoT](https://img.shields.io/badge/IoT-Enabled-green)](https://en.wikipedia.org/wiki/Internet_of_things)
+[![Real-time](https://img.shields.io/badge/Real--time-WebSockets-orange)](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
+
+Sistema de monitoreo inteligente para cámaras frigoríficas que integra IoT, análisis predictivo y recomendaciones técnicas mediante IA.
+
+## Características Principales 🚀
+
+- **Monitoreo en Tiempo Real** de temperatura y humedad mediante sensores IoT
+- **Dashboard Interactivo** con visualización de datos históricos y actuales
+- **Sistema de Alertas Inteligente** que solo notifica cuando los parámetros salen de rangos seguros
+- **Recomendaciones Técnicas Automatizadas** generadas por un modelo LLM local
+- **Arquitectura MAPE-K** (Monitor, Analyze, Plan, Execute - Knowledge) para gestión adaptativa
+- **Comunicación Bidireccional** mediante WebSockets para actualizaciones instantáneas
+- **Base de Datos No Relacional** para almacenamiento eficiente de series temporales
+
+## Tecnologías Clave 🔧
+
+- **Backend**: Python 3.8+ (FastAPI/Flask)
+- **Frontend**: Dashboard con Plotly Dash/Streamlit
+- **Base de Datos**: MongoDB/InfluxDB
+- **IoT**: Protocolos MQTT/HTTP para comunicación con sensores
+- **IA**: Modelo LLM en contenedor Docker para generación de recomendaciones
+- **Infraestructura**: Contenedores Docker para despliegue escalable
+
+## Arquitectura del Sistema 🏗️
+
+```mermaid
+graph TD
+    A[Sensores IoT] -->|Datos| B[Backend Python]
+    B --> C[(Base de Datos NoSQL)]
+    B --> D[Dashboard Web]
+    D -->|WebSockets| B
+    B --> E[Modelo LLM]
+    E -->|Recomendaciones| D
+    C --> F[Análisis MAPE-K]
+    F --> B
 <img width="1489" height="870" alt="image" src="https://github.com/user-attachments/assets/a38aa4a7-8ebf-463f-8015-c9bfb29769db" />
 
 <img width="1416" height="846" alt="image" src="https://github.com/user-attachments/assets/609aa1cc-0dd8-41d8-86f8-df881c86df30" />
