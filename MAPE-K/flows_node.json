@@ -1,0 +1,426 @@
+[
+    {
+        "id": "31ab3c8ecc0a2639",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e7d6fd72c6f440a3",
+        "type": "junction",
+        "z": "31ab3c8ecc0a2639",
+        "x": 940,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7e879e6c388dd4bf",
+        "type": "mqtt in",
+        "z": "31ab3c8ecc0a2639",
+        "name": "",
+        "topic": "casa/temperatura",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "45a7cc99a4cd1a9c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 400,
+        "y": 160,
+        "wires": [
+            [
+                "d26086639c884e9d"
+            ]
+        ]
+    },
+    {
+        "id": "d26086639c884e9d",
+        "type": "debug",
+        "z": "31ab3c8ecc0a2639",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "14d45b2b5d019338",
+        "type": "mqtt out",
+        "z": "31ab3c8ecc0a2639",
+        "name": "",
+        "topic": "casa/temperatura",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "45a7cc99a4cd1a9c",
+        "x": 930,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "2662905f1db7f945",
+        "type": "inject",
+        "z": "31ab3c8ecc0a2639",
+        "name": "Random Sensor Values",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "hola",
+        "payloadType": "str",
+        "x": 510,
+        "y": 280,
+        "wires": [
+            [
+                "cb1e25fe3e43d40f"
+            ]
+        ]
+    },
+    {
+        "id": "171fac5232a222c7",
+        "type": "mongodb4",
+        "z": "31ab3c8ecc0a2639",
+        "clientNode": "3dbf149d9e97fd6e",
+        "mode": "collection",
+        "collection": "sensor_mqtt",
+        "operation": "insertOne",
+        "output": "toArray",
+        "maxTimeMS": "0",
+        "handleDocId": false,
+        "name": "",
+        "x": 960,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cb1e25fe3e43d40f",
+        "type": "function",
+        "z": "31ab3c8ecc0a2639",
+        "name": "gral() ",
+        "func": "// Rango veterinario: Temperatura de conservación entre 15°C y 25°C\nvar minTempC = 0;\nvar maxTempC = 8;\nvar randomTemperatureC = parseFloat((Math.random() * (maxTempC - minTempC) + minTempC).toFixed(2));\n\n// Rango de humedad entre 30% y 60%\nvar minHumidity = 30;\nvar maxHumidity = 60;\nvar randomHumidity = parseFloat((Math.random() * (maxHumidity - minHumidity) + minHumidity).toFixed(2));\n\n// RSSI simulado (entre -40 y -70) — opcional\nvar randomRSSI = -Math.floor(Math.random() * 0) - 40;\n\n// Intervalo entre 1 y 5 minutos\nvar randomInterval = Math.floor(Math.random() * (5 * 60 * 1000 - 1 * 60 * 1000 + 1)) + 1 * 60 * 1000;\n\n// Obtiene la última fecha o la actual si no hay historial\nvar lastDate = context.historicalData && context.historicalData.length > 0\n    ? new Date(context.historicalData[context.historicalData.length - 1].fecha_hora)\n    : new Date();\n\nvar now = new Date(lastDate.getTime() + randomInterval); // Sumar el intervalo\n\n// Crear nuevo registro con formato simple\nvar newEntry = {\n    \"sensor\": \"Sensor_A1\",\n    \"fecha\": now.toLocaleDateString(),\n    \"hora\": now.toLocaleTimeString(),\n    \"temperatura_c\": randomTemperatureC,\n    \"temperatura_f\": parseFloat((randomTemperatureC * 9 / 5 + 32).toFixed(2)),\n    \"humedad\": randomHumidity,\n    \"rssi\": randomRSSI,\n    \"fecha_hora\": now.toLocaleString(),\n    \"ip\": \"192.168.1.133\",\n    \"ssid\": \"Robert-Wifi\",\n    \"mac\": \"48:E7:29:A6:0B:D4\",\n    \"firmware\": \"1.0.10\",\n    \"interval\": 5000,\n    \"name\": \"NCD-0BD4\",\n    \"timestamp\": now.toLocaleString()\n};\n\n// Guardar en historial si se desea\ncontext.historicalData = context.historicalData || [];\ncontext.historicalData.push(newEntry);\n\n// Enviar como payload\nmsg.payload = newEntry;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 160,
+        "wires": [
+            [
+                "05ff6cd4db0bda7c",
+                "964255b41abe8189",
+                "14d45b2b5d019338"
+            ]
+        ]
+    },
+    {
+        "id": "8000281ef91dfd2e",
+        "type": "ui_gauge",
+        "z": "31ab3c8ecc0a2639",
+        "name": "",
+        "group": "28797f4f63b6c748",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "humedad_gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1250,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4cf353aef8798fdb",
+        "type": "ui_chart",
+        "z": "31ab3c8ecc0a2639",
+        "name": "",
+        "group": "28797f4f63b6c748",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "humedad_chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1500,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "05ff6cd4db0bda7c",
+        "type": "function",
+        "z": "31ab3c8ecc0a2639",
+        "name": "humedad()",
+        "func": "//var randomHumidity = Math.floor(Math.random() * (80 - 20 + 1)) + 20;\n\n// Suponiendo que msg.payload.humidity contiene el valor de la humidity\nmsg.payload = msg.payload.humedad; // Asigna solo la humidity al payload\n//msg.payload = randomHumidity;\nreturn msg; // Devuelve el mensaje con el nuevo payload",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 260,
+        "wires": [
+            [
+                "8000281ef91dfd2e"
+            ]
+        ]
+    },
+    {
+        "id": "964255b41abe8189",
+        "type": "function",
+        "z": "31ab3c8ecc0a2639",
+        "name": "temperatura",
+        "func": "//Suponiendo que msg.payload.humidity contiene el valor de la humidity\n//var randomHumidity = Math.floor(Math.random() * (50 - 0 + 1)) + 0;\nmsg.payload = msg.payload.temperatura; // Asigna solo la humidity al payload\n//msg.payload= randomHumidity\nreturn msg; // Devuelve el mensaje con el nuevo payload",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 340,
+        "wires": [
+            [
+                "24350a3c71ff535e"
+            ]
+        ]
+    },
+    {
+        "id": "24350a3c71ff535e",
+        "type": "ui_gauge",
+        "z": "31ab3c8ecc0a2639",
+        "name": "",
+        "group": "28797f4f63b6c748",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "temperatura_gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1250,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "66d132b072ea4295",
+        "type": "ui_chart",
+        "z": "31ab3c8ecc0a2639",
+        "name": "",
+        "group": "28797f4f63b6c748",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "temperatura_chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1510,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6b2bb25fc6ecb4be",
+        "type": "function",
+        "z": "31ab3c8ecc0a2639",
+        "name": "function 2",
+        "func": "// Rango veterinario: Temperatura de conservación entre 15°C y 25°C\nvar minTempC = 15;\nvar maxTempC = 25;\nvar randomTemperatureC = parseFloat((Math.random() * (maxTempC - minTempC) + minTempC).toFixed(2));\n\n// Humedad entre 30% y 60%\nvar randomHumidity = parseFloat((Math.random() * (60 - 30) + 30).toFixed(2));\n\n// RSSI simulado (entre -40 y -70) — opcional\nvar randomRSSI = -Math.floor(Math.random() * 30) - 40;\n\n// Intervalo entre 1 y 5 minutos\nvar randomInterval = Math.floor(Math.random() * (5 * 60 * 1000 - 1 * 60 * 1000 + 1)) + 1 * 60 * 1000;\n\n// Obtiene la última fecha o la actual si no hay historial\nvar lastDate = context.historicalData && context.historicalData.length > 0\n    ? new Date(context.historicalData[context.historicalData.length - 1].fecha_hora)\n    : new Date();\n\nvar now = new Date(lastDate.getTime() + randomInterval); // Sumar el intervalo\n\n// Crear nuevo registro con formato simple\nvar newEntry = {\n    \"sensor\": \"Sensor_A1\",\n    \"fecha\": now.toLocaleDateString(),\n    \"hora\": now.toLocaleTimeString(),\n    \"temperatura_c\": randomTemperatureC,\n    \"temperatura_f\": parseFloat((randomTemperatureC * 9 / 5 + 32).toFixed(2)),\n    \"humedad\": randomHumidity,\n    \"rssi\": randomRSSI,\n    \"fecha_hora\": now.toLocaleString()\n};\n\n// Guardar en historial si se desea\ncontext.historicalData = context.historicalData || [];\ncontext.historicalData.push(newEntry);\n\n// Enviar como payload\nmsg.payload = newEntry;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c7029d8278a4d630",
+        "type": "comment",
+        "z": "31ab3c8ecc0a2639",
+        "name": "Este nodo esta simulando la publicacion en tiempo real del sensor fisico",
+        "info": "Este nodo esta simulando la publicacion en tiempo real del sensor fisico",
+        "x": 920,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "45a7cc99a4cd1a9c",
+        "type": "mqtt-broker",
+        "name": "InputDevServer",
+        "broker": "192.168.10.175",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "3dbf149d9e97fd6e",
+        "type": "mongodb4-client",
+        "name": "",
+        "protocol": "mongodb",
+        "hostname": "192.168.10.175",
+        "port": "",
+        "dbName": "almacen_db",
+        "appName": "",
+        "authSource": "",
+        "authMechanism": "DEFAULT",
+        "tls": false,
+        "tlsCAFile": "",
+        "tlsCertificateKeyFile": "",
+        "tlsInsecure": false,
+        "connectTimeoutMS": "30000",
+        "socketTimeoutMS": "0",
+        "minPoolSize": "0",
+        "maxPoolSize": "100",
+        "maxIdleTimeMS": "0",
+        "uri": "",
+        "advanced": "{}",
+        "uriTabActive": "tab-uri-simple"
+    },
+    {
+        "id": "28797f4f63b6c748",
+        "type": "ui_group",
+        "name": "Humedad",
+        "tab": "020301b653d91f06",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "020301b653d91f06",
+        "type": "ui_tab",
+        "name": "Almacén",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
