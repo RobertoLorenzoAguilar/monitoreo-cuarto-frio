@@ -202,6 +202,11 @@ docker model list
 
 ---
 
+
+Cuarto Frio Bot Alertas
+<img width="983" height="948" alt="image" src="https://github.com/user-attachments/assets/5eaa731a-da88-4b74-8cb2-a7fa2f3536e3" />
+
+
 ## 📸 Vistas del Proyecto
 
 Dashboard:
