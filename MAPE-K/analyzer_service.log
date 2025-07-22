@@ -1,3 +1,12 @@
 2025-07-22 10:28:54,916 - INFO - Servicio iniciado
 2025-07-22 10:28:54,926 - INFO - Todo en orden, sin alertas.
 2025-07-22 10:28:59,931 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(49.83) temperatura: (18.26) - anormal_temperatura']
+Terminating on signal 15
+Exception ignored in: <function Client.__del__ at 0x1044cad40>
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/paho/mqtt/client.py", line 880, in __del__
+  File "/opt/anaconda3/lib/python3.12/site-packages/paho/mqtt/client.py", line 1139, in _reset_sockets
+  File "/opt/anaconda3/lib/python3.12/site-packages/paho/mqtt/client.py", line 1135, in _sock_close
+  File "/opt/anaconda3/lib/python3.12/socket.py", line 505, in close
+  File "/opt/anaconda3/lib/python3.12/socket.py", line 499, in _real_close
+OSError: [Errno 9] Bad file descriptor

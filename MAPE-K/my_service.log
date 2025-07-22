@@ -833,3 +833,90 @@ Mensajes recibidos: ['Alerta de temperatura fuera de rango humedad:(56.38) tempe
  Insertado en MongoDB con _id: 687fccbcfb0c89c08eee3f57
  Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"2:28:08 PM","temperatura_c":27.87,"temperatura_f":82.17,"humedad":34.54,"rssi":-40,"fecha_hora":"7/24/2025, 2:28:08 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 2:28:08 PM"}
  Insertado en MongoDB con _id: 687fccbdfb0c89c08eee3f58
+2025-07-22 12:57:02,019 - INFO - Servicio iniciado
+2025-07-22 12:57:02,030 - INFO - Todo en orden, sin alertas.
+2025-07-22 12:57:12,057 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(32.53) temperatura: (974.09) - anormal_temperatura']
+2025-07-22 12:57:48,190 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 12:57:58,367 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(36.59) temperatura: (5371.67) - anormal_temperatura']
+2025-07-22 12:58:50,106 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 12:59:00,210 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(54.15) temperatura: (5311.11) - anormal_temperatura']
+2025-07-22 12:59:40,135 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 12:59:50,463 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(57.54) temperatura: (7733.98) - anormal_temperatura']
+2025-07-22 13:18:11,828 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 13:18:26,647 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(45.29) temperatura: (6828.77) - anormal_temperatura']
+2025-07-22 13:33:37,424 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 13:37:37,802 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(32.25) temperatura: (6500.83) - anormal_temperatura']
+2025-07-22 15:28:41,595 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 15:42:49,711 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(37.52) temperatura: (7065.79) - anormal_temperatura']
+2025-07-22 15:43:55,061 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 15:44:05,280 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(38.64) temperatura: (851.5) - anormal_temperatura']
+2025-07-22 15:48:30,146 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 15:48:40,687 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(32.0) temperatura: (4483.41) - anormal_temperatura']
+2025-07-22 15:49:47,106 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 15:49:57,300 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(53.28) temperatura: (1538.2) - anormal_temperatura']
+2025-07-22 15:50:41,069 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 15:50:51,141 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(55.85) temperatura: (2759.21) - anormal_temperatura']
+2025-07-22 15:51:38,896 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 15:51:48,966 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(43.76) temperatura: (5701.56) - anormal_temperatura']
+2025-07-22 15:52:47,120 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 15:52:57,211 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(40.43) temperatura: (6314.83) - anormal_temperatura']
+2025-07-22 15:53:43,247 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 15:53:53,285 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(50.77) temperatura: (832.67) - anormal_temperatura']
+2025-07-22 15:54:38,844 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 15:54:48,877 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(58.01) temperatura: (6403.38) - anormal_temperatura']
+2025-07-22 15:55:40,539 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 15:55:50,596 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(54.05) temperatura: (3600.4) - anormal_temperatura']
+Terminating on signal 15
+Terminating on signal 15
+Exception ignored in: <function Client.__del__ at 0x104772d40>
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/paho/mqtt/client.py", line 880, in __del__
+  File "/opt/anaconda3/lib/python3.12/site-packages/paho/mqtt/client.py", line 1139, in _reset_sockets
+  File "/opt/anaconda3/lib/python3.12/site-packages/paho/mqtt/client.py", line 1135, in _sock_close
+  File "/opt/anaconda3/lib/python3.12/socket.py", line 505, in close
+  File "/opt/anaconda3/lib/python3.12/socket.py", line 499, in _real_close
+OSError: [Errno 9] Bad file descriptor
+Exception ignored in: <function Client.__del__ at 0x1067b2d40>
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/paho/mqtt/client.py", line 880, in __del__
+  File "/opt/anaconda3/lib/python3.12/site-packages/paho/mqtt/client.py", line 1139, in _reset_sockets
+  File "/opt/anaconda3/lib/python3.12/site-packages/paho/mqtt/client.py", line 1135, in _sock_close
+  File "/opt/anaconda3/lib/python3.12/socket.py", line 505, in close
+  File "/opt/anaconda3/lib/python3.12/socket.py", line 499, in _real_close
+OSError: [Errno 9] Bad file descriptor
+2025-07-22 16:11:25,432 - INFO - Servicio iniciado
+2025-07-22 16:11:25,444 - INFO - Todo en orden, sin alertas.
+2025-07-22 16:11:35,449 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(41.78) temperatura: (1427.09) - anormal_temperatura']
+2025-07-22 16:11:35,776 - INFO - Retrying request to /chat/completions in 0.453695 seconds
+2025-07-22 16:11:36,236 - INFO - Retrying request to /chat/completions in 0.984150 seconds
+2025-07-22 16:11:47,226 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(58.32) temperatura: (7646.24) - anormal_temperatura']
+2025-07-22 16:11:47,234 - INFO - Retrying request to /chat/completions in 0.470882 seconds
+2025-07-22 16:11:47,715 - INFO - Retrying request to /chat/completions in 0.906563 seconds
+2025-07-22 16:11:58,636 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(46.52) temperatura: (5423.35) - anormal_temperatura']
+2025-07-22 16:12:26,753 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 16:14:00,066 - INFO - Servicio iniciado
+2025-07-22 16:14:00,088 - INFO - Todo en orden, sin alertas.
+2025-07-22 16:14:10,094 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(48.27) temperatura: (2045.99) - anormal_temperatura']
+2025-07-22 16:14:37,661 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 16:15:29,376 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(47.85) temperatura: (7935.16) - anormal_temperatura']
+2025-07-22 16:15:51,654 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 16:23:00,386 - INFO - Servicio iniciado
+2025-07-22 16:23:00,440 - INFO - Todo en orden, sin alertas.
+2025-07-22 16:23:10,449 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(44.12) temperatura: (1483.63) - anormal_temperatura']
+2025-07-22 16:23:46,679 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 16:24:08,265 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(36.09) temperatura: (971.89) - anormal_temperatura']
+2025-07-22 16:24:35,847 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 16:25:26,984 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(49.11) temperatura: (6835.86) - anormal_temperatura']
+2025-07-22 16:25:52,731 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 16:26:03,411 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(57.38) temperatura: (1773.18) - anormal_temperatura']
+2025-07-22 16:26:30,028 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 16:26:40,630 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(33.84) temperatura: (4130.25) - anormal_temperatura']
+2025-07-22 16:27:08,687 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 16:27:19,304 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(31.8) temperatura: (27.11) - anormal_temperatura']
+2025-07-22 16:27:41,552 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 16:27:52,174 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(59.69) temperatura: (4837.21) - anormal_temperatura']
+2025-07-22 16:28:22,208 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 16:28:32,808 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(43.24) temperatura: (7313.77) - anormal_temperatura']
+2025-07-22 16:28:58,492 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 16:29:09,098 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(59.32) temperatura: (2261.73) - anormal_temperatura']
+2025-07-22 16:29:36,540 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"

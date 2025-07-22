@@ -1,9 +1,9 @@
 #Cómo Usar el Servicio
 #Ejecutar en primer plano (para pruebas):
-#python script.py --interval 10 --log-file my_service.log
+#python planeador.py --interval 10 --log-file my_service.log
 #Esto ejecuta el servicio con un intervalo de 10 segundos y guarda logs en my_service.log.
 #Ejecutar como daemon (en segundo plano):
-#python script.py --interval 10 --log-file my_service.log --daemon
+#python planeador.py --interval 10 --log-file my_service.log --daemon
 #El servicio se ejecuta en segundo plano. Los logs se guardan en my_service.log.
 #El archivo PID se crea en /tmp/analyzer_service.pid.
 #Detener el servicio:
