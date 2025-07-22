@@ -19,7 +19,7 @@ Sistema de monitoreo para cámaras frigoríficas que integra IoT, análisis  y r
 
 ## Tecnologías Clave 🔧
 
-- **Backend**: Python 3.8+ (FastAPI/Flask)
+- **Backend**: Python 3.8+
 - **Frontend**: react
 - **Base de Datos**: MongoDB
 - **IoT**: Protocolos MQTT/HTTP para comunicación con sensores
@@ -179,7 +179,7 @@ client = OpenAI(
 
 response = client.completions.create(
     model="ai/smollm2:360M-Q4_K_M",
-    prompt="¿Cómo preparo los chilaquiles?",
+    prompt="¿Recomendación climatica?",
     max_tokens=100,
 )
 
