@@ -1,0 +1,3 @@
+2025-07-22 10:28:54,916 - INFO - Servicio iniciado
+2025-07-22 10:28:54,926 - INFO - Todo en orden, sin alertas.
+2025-07-22 10:28:59,931 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(49.83) temperatura: (18.26) - anormal_temperatura']
