@@ -920,3 +920,4 @@ OSError: [Errno 9] Bad file descriptor
 2025-07-22 16:28:58,492 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
 2025-07-22 16:29:09,098 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(59.32) temperatura: (2261.73) - anormal_temperatura']
 2025-07-22 16:29:36,540 - INFO - HTTP Request: POST http://localhost:12434/engines/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 16:29:47,149 - INFO - Alertas activadas: ['Alerta de temperatura fuera de rango humedad:(55.65) temperatura: (1497.87) - anormal_temperatura']
