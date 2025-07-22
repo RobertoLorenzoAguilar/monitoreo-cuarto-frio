@@ -207,6 +207,10 @@ Cuarto Frio Bot Alertas
 <img width="983" height="948" alt="image" src="https://github.com/user-attachments/assets/5eaa731a-da88-4b74-8cb2-a7fa2f3536e3" />
 
 
+Habilitar Grupos para el chatbot
+<img width="720" height="700" alt="image" src="https://github.com/user-attachments/assets/99763de9-b7b6-4a5b-b5f2-c675eaa0be74" />
+
+
 ## 📸 Vistas del Proyecto
 
 Dashboard:
