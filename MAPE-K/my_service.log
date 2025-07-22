@@ -716,3 +716,120 @@ Ejecutando acción genérica...
 Mensajes recibidos: ['Alerta de temperatura fuera de rango humedad:(46.38) temperatura: (59.89) - anormal_temperatura']
  Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"12:44:00 PM","temperatura_c":2.07,"temperatura_f":35.73,"humedad":58.22,"rssi":-40,"fecha_hora":"7/24/2025, 12:44:00 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 12:44:00 PM"}
  Insertado en MongoDB con _id: 687fcc97fb0c89c08eee3f32
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"12:47:42 PM","temperatura_c":54.26,"temperatura_f":129.67,"humedad":33.42,"rssi":-40,"fecha_hora":"7/24/2025, 12:47:42 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 12:47:42 PM"}
+ Insertado en MongoDB con _id: 687fcc98fb0c89c08eee3f33
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"12:49:18 PM","temperatura_c":72.72,"temperatura_f":162.9,"humedad":58.59,"rssi":-40,"fecha_hora":"7/24/2025, 12:49:18 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 12:49:18 PM"}
+ Insertado en MongoDB con _id: 687fcc99fb0c89c08eee3f34
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"12:53:14 PM","temperatura_c":16.58,"temperatura_f":61.84,"humedad":36.76,"rssi":-40,"fecha_hora":"7/24/2025, 12:53:14 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 12:53:14 PM"}
+ Insertado en MongoDB con _id: 687fcc9afb0c89c08eee3f35
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"12:54:53 PM","temperatura_c":22.28,"temperatura_f":72.1,"humedad":49.35,"rssi":-40,"fecha_hora":"7/24/2025, 12:54:53 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 12:54:53 PM"}
+ Insertado en MongoDB con _id: 687fcc9bfb0c89c08eee3f36
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"12:57:02 PM","temperatura_c":31.07,"temperatura_f":87.93,"humedad":33.66,"rssi":-40,"fecha_hora":"7/24/2025, 12:57:02 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 12:57:02 PM"}
+ Insertado en MongoDB con _id: 687fcc9cfb0c89c08eee3f37
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"12:59:29 PM","temperatura_c":45.95,"temperatura_f":114.71,"humedad":59.14,"rssi":-40,"fecha_hora":"7/24/2025, 12:59:29 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 12:59:29 PM"}
+ Insertado en MongoDB con _id: 687fcc9dfb0c89c08eee3f38
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:03:17 PM","temperatura_c":55.45,"temperatura_f":131.81,"humedad":38.28,"rssi":-40,"fecha_hora":"7/24/2025, 1:03:17 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:03:17 PM"}
+ Insertado en MongoDB con _id: 687fcc9efb0c89c08eee3f39
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:05:59 PM","temperatura_c":55.05,"temperatura_f":131.09,"humedad":46.16,"rssi":-40,"fecha_hora":"7/24/2025, 1:05:59 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:05:59 PM"}
+ Insertado en MongoDB con _id: 687fcc9ffb0c89c08eee3f3a
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:07:06 PM","temperatura_c":38.78,"temperatura_f":101.8,"humedad":48.11,"rssi":-40,"fecha_hora":"7/24/2025, 1:07:06 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:07:06 PM"}
+ Insertado en MongoDB con _id: 687fcca0fb0c89c08eee3f3b
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:10:24 PM","temperatura_c":40.87,"temperatura_f":105.57,"humedad":54.04,"rssi":-40,"fecha_hora":"7/24/2025, 1:10:24 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:10:24 PM"}
+ Insertado en MongoDB con _id: 687fcca1fb0c89c08eee3f3c
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:12:42 PM","temperatura_c":75.97,"temperatura_f":168.75,"humedad":55.1,"rssi":-40,"fecha_hora":"7/24/2025, 1:12:42 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:12:42 PM"}
+ Insertado en MongoDB con _id: 687fcca2fb0c89c08eee3f3d
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:14:01 PM","temperatura_c":48.61,"temperatura_f":119.5,"humedad":55.56,"rssi":-40,"fecha_hora":"7/24/2025, 1:14:01 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:14:01 PM"}
+ Insertado en MongoDB con _id: 687fcca3fb0c89c08eee3f3e
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:16:19 PM","temperatura_c":65.56,"temperatura_f":150.01,"humedad":36.4,"rssi":-40,"fecha_hora":"7/24/2025, 1:16:19 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:16:19 PM"}
+ Insertado en MongoDB con _id: 687fcca4fb0c89c08eee3f3f
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:17:57 PM","temperatura_c":36.45,"temperatura_f":97.61,"humedad":49.26,"rssi":-40,"fecha_hora":"7/24/2025, 1:17:57 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:17:57 PM"}
+ Insertado en MongoDB con _id: 687fcca5fb0c89c08eee3f40
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:21:32 PM","temperatura_c":72.32,"temperatura_f":162.18,"humedad":58.01,"rssi":-40,"fecha_hora":"7/24/2025, 1:21:32 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:21:32 PM"}
+ Insertado en MongoDB con _id: 687fcca6fb0c89c08eee3f41
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:25:18 PM","temperatura_c":36.58,"temperatura_f":97.84,"humedad":47.37,"rssi":-40,"fecha_hora":"7/24/2025, 1:25:18 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:25:18 PM"}
+ Insertado en MongoDB con _id: 687fcca7fb0c89c08eee3f42
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:26:47 PM","temperatura_c":8.5,"temperatura_f":47.3,"humedad":38.51,"rssi":-40,"fecha_hora":"7/24/2025, 1:26:47 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:26:47 PM"}
+ Insertado en MongoDB con _id: 687fcca8fb0c89c08eee3f43
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:30:48 PM","temperatura_c":56.95,"temperatura_f":134.51,"humedad":33.96,"rssi":-40,"fecha_hora":"7/24/2025, 1:30:48 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:30:48 PM"}
+ Insertado en MongoDB con _id: 687fcca9fb0c89c08eee3f44
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:34:30 PM","temperatura_c":57.95,"temperatura_f":136.31,"humedad":44.36,"rssi":-40,"fecha_hora":"7/24/2025, 1:34:30 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:34:30 PM"}
+ Insertado en MongoDB con _id: 687fccaafb0c89c08eee3f45
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:36:44 PM","temperatura_c":30.15,"temperatura_f":86.27,"humedad":44.35,"rssi":-40,"fecha_hora":"7/24/2025, 1:36:44 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:36:44 PM"}
+ Insertado en MongoDB con _id: 687fccabfb0c89c08eee3f46
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:40:42 PM","temperatura_c":41.94,"temperatura_f":107.49,"humedad":58.24,"rssi":-40,"fecha_hora":"7/24/2025, 1:40:42 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:40:42 PM"}
+ Insertado en MongoDB con _id: 687fccacfb0c89c08eee3f47
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:43:05 PM","temperatura_c":51.07,"temperatura_f":123.93,"humedad":56.9,"rssi":-40,"fecha_hora":"7/24/2025, 1:43:05 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:43:05 PM"}
+ Insertado en MongoDB con _id: 687fccadfb0c89c08eee3f48
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:45:01 PM","temperatura_c":3.26,"temperatura_f":37.87,"humedad":49.24,"rssi":-40,"fecha_hora":"7/24/2025, 1:45:01 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:45:01 PM"}
+ Insertado en MongoDB con _id: 687fccaefb0c89c08eee3f49
+
+ Recomendación generada:
+**Evaluación de la Situación**
+
+Me alegra que hayas notificado la situación anormal en el cuarto frío con sensores de temperatura y humedad. Después de analizar los datos, puedo decir que la temperatura está ligeramente por encima del rango de seguridad recomendado.
+
+**Análisis de los Valores**
+
+Los valores actuales son:
+
+* Temperatura: 59,89 °C (por encima del rango de seguridad recomendado)
+* Humedad: 46,38 % (bajo el rango de seguridad recomendado)
+
+**Recomendaciones Técnicas**
+
+Para corregir el problema detectado, te recomiendo las siguientes acciones:
+
+1. **Ajustar la temperatura**:
+ * Verificar si el sistema de refrigeración está funcionando correctamente y ajustar la temperatura según sea necesario.
+ * Ajustar la velocidad del ventilador para mantener una temperatura más estable.
+2. **Aumentar la humedad**:
+ * Verificar si el sistema de humedad está funcionando correctamente y ajustar la humedad según sea necesario.
+ * Ajustar la frecuencia de los bombos de humedad para mantener una humedad más estable.
+3. **Revisar la ventilación**:
+ * Verificar si las ventanas o puertas están abiertas y ajustarlas para permitir una mejor ventilación.
+ * Ajustar la velocidad del ventilador para mantener una temperatura y humedad más estable.
+4. **Realizar un mantenimiento rutinario**:
+ * Verificar el sistema de refrigeración y humedad para asegurarse de que estén funcionando correctamente.
+ * Realizar un mantenimiento rutinario de las piezas móviles y las tuberías para evitar fugas de refrigerante o humedad.
+
+**Seguridad Adicional**
+
+Es importante recordar que la temperatura y la humedad pueden afectar la estabilidad y la seguridad de las vacunas veterinarias. Si la temperatura está por encima del rango de seguridad recomendado, es posible que las vacunas se degraden o se vuelvan ineficaces. Por lo tanto, es importante tomar medidas para corregir el problema lo antes posible.
+
+**Monitoreo Continuo**
+
+Es importante monitorear continuamente la temperatura y la humedad para asegurarse de que se mantengan dentro de los rangers de seguridad recomendados. Deberás realizar monitoreos regulares para asegurarte de que la temperatura y humedad estén dentro de los rangos de seguridad recomendados.
+
+Recomendación publicada en MQTT: cuartofrio/recomendaciones
+Ejecutando acción genérica...
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:47:50 PM","temperatura_c":61.18,"temperatura_f":142.12,"humedad":55.28,"rssi":-40,"fecha_hora":"7/24/2025, 1:47:50 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:47:50 PM"}
+ Insertado en MongoDB con _id: 687fccaffb0c89c08eee3f4a
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:50:37 PM","temperatura_c":29.46,"temperatura_f":85.03,"humedad":50.69,"rssi":-40,"fecha_hora":"7/24/2025, 1:50:37 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:50:37 PM"}
+ Insertado en MongoDB con _id: 687fccb0fb0c89c08eee3f4b
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:52:34 PM","temperatura_c":10.28,"temperatura_f":50.5,"humedad":43.66,"rssi":-40,"fecha_hora":"7/24/2025, 1:52:34 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:52:34 PM"}
+ Insertado en MongoDB con _id: 687fccb1fb0c89c08eee3f4c
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:55:52 PM","temperatura_c":72,"temperatura_f":161.6,"humedad":38.78,"rssi":-40,"fecha_hora":"7/24/2025, 1:55:52 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:55:52 PM"}
+ Insertado en MongoDB con _id: 687fccb2fb0c89c08eee3f4d
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"1:58:41 PM","temperatura_c":56.36,"temperatura_f":133.45,"humedad":49.79,"rssi":-40,"fecha_hora":"7/24/2025, 1:58:41 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 1:58:41 PM"}
+ Insertado en MongoDB con _id: 687fccb3fb0c89c08eee3f4e
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"2:00:39 PM","temperatura_c":33.93,"temperatura_f":93.07,"humedad":57.04,"rssi":-40,"fecha_hora":"7/24/2025, 2:00:39 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 2:00:39 PM"}
+ Insertado en MongoDB con _id: 687fccb4fb0c89c08eee3f4f
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"2:02:05 PM","temperatura_c":30.9,"temperatura_f":87.62,"humedad":33.1,"rssi":-40,"fecha_hora":"7/24/2025, 2:02:05 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 2:02:05 PM"}
+ Insertado en MongoDB con _id: 687fccb5fb0c89c08eee3f50
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"2:05:49 PM","temperatura_c":59.75,"temperatura_f":139.55,"humedad":40.82,"rssi":-40,"fecha_hora":"7/24/2025, 2:05:49 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 2:05:49 PM"}
+ Insertado en MongoDB con _id: 687fccb6fb0c89c08eee3f51
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"2:07:39 PM","temperatura_c":39.65,"temperatura_f":103.37,"humedad":36.42,"rssi":-40,"fecha_hora":"7/24/2025, 2:07:39 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 2:07:39 PM"}
+ Insertado en MongoDB con _id: 687fccb7fb0c89c08eee3f52
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"2:11:18 PM","temperatura_c":37.39,"temperatura_f":99.3,"humedad":56.38,"rssi":-40,"fecha_hora":"7/24/2025, 2:11:18 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 2:11:18 PM"}
+ Insertado en MongoDB con _id: 687fccb8fb0c89c08eee3f53
+Mensajes recibidos: ['Alerta de temperatura fuera de rango humedad:(56.38) temperatura: (37.39) - anormal_temperatura']
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"2:14:10 PM","temperatura_c":14.2,"temperatura_f":57.56,"humedad":55.03,"rssi":-40,"fecha_hora":"7/24/2025, 2:14:10 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 2:14:10 PM"}
+ Insertado en MongoDB con _id: 687fccb9fb0c89c08eee3f54
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"2:18:11 PM","temperatura_c":22.52,"temperatura_f":72.54,"humedad":56.84,"rssi":-40,"fecha_hora":"7/24/2025, 2:18:11 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 2:18:11 PM"}
+ Insertado en MongoDB con _id: 687fccbafb0c89c08eee3f55
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"2:22:54 PM","temperatura_c":10.53,"temperatura_f":50.95,"humedad":37.35,"rssi":-40,"fecha_hora":"7/24/2025, 2:22:54 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 2:22:54 PM"}
+ Insertado en MongoDB con _id: 687fccbbfb0c89c08eee3f56
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"2:24:44 PM","temperatura_c":72.53,"temperatura_f":162.55,"humedad":30.92,"rssi":-40,"fecha_hora":"7/24/2025, 2:24:44 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 2:24:44 PM"}
+ Insertado en MongoDB con _id: 687fccbcfb0c89c08eee3f57
+ Datos recibidos: {"sensor":"Sensor_A1","fecha":"7/24/2025","hora":"2:28:08 PM","temperatura_c":27.87,"temperatura_f":82.17,"humedad":34.54,"rssi":-40,"fecha_hora":"7/24/2025, 2:28:08 PM","ip":"192.168.1.133","ssid":"Robert-Wifi","mac":"48:E7:29:A6:0B:D4","firmware":"1.0.10","interval":5000,"name":"NCD-0BD4","timestamp":"7/24/2025, 2:28:08 PM"}
+ Insertado en MongoDB con _id: 687fccbdfb0c89c08eee3f58
