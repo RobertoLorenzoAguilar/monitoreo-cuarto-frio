@@ -219,6 +219,11 @@ mosquitto_sub -h 192.168.16.76 -t "prueba/robert"
 mosquitto_pub -h localhost -p 1883 -t "prueba/robert" -m "¡Hola MQTT desde Docker!"
 ```
 
+5. **Mantener contenedor corriendo una vez que se reinicia el servidor**:
+
+```bash
+docker update --restart unless-stopped mosquitto-container
+```
 ---
 
 ## 🧰 Node-RED
