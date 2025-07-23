@@ -304,6 +304,9 @@ return msg;
 
 Puedes pegar esta función en un nodo `function` dentro de Node-RED y conectarlo a un nodo `inject` (para iniciar el flujo) y un nodo `mqtt out` (para enviar los datos).
 
+## 🧱 MongoDB + 
+<img width="1268" height="704" alt="image" src="https://github.com/user-attachments/assets/22d74beb-c623-4f52-8244-80c512264d0a" />
+
 
 ## 🧱 MongoDB + Mongo Express
 
@@ -313,6 +316,7 @@ Autenticación sugerida para MongoDB Compass:
 - **Usuario:** admin
 - **Contraseña:** pass
 
+**¿Por qué incluir el RSSI (Received Signal Strength Indicator)?**:
 <img width="623" height="321" alt="MongoDB Compass" src="https://github.com/user-attachments/assets/1920c777-8930-4557-aaa2-a8ec98d6d479" />
 
 ---
