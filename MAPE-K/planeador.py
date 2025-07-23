@@ -1,14 +1,26 @@
-#Cómo Usar el Servicio
-#Ejecutar en primer plano (para pruebas):
-#python planeador.py --interval 10 --log-file my_service.log
-#Esto ejecuta el servicio con un intervalo de 10 segundos y guarda logs en my_service.log.
-#Ejecutar como daemon (en segundo plano):
-#python planeador.py --interval 10 --log-file my_service.log --daemon
-#El servicio se ejecuta en segundo plano. Los logs se guardan en my_service.log.
-#El archivo PID se crea en /tmp/analyzer_service.pid.
-#Detener el servicio:
-#Encuentra el PID del proceso en /tmp/analyzer_service.pid y mátalo:
-#kill $(cat /tmp/analyzer_service.pid)
+"""
+Servicio de análisis de alertas MQTT
+
+Este script permite ejecutar un servicio que analiza mensajes MQTT periódicamente
+y ejecuta acciones si detecta alertas. Puede ejecutarse en primer plano (para pruebas)
+o en segundo plano como un daemon.
+
+Modo de uso:
+
+- Ejecutar en primer plano:
+    python planeador.py --interval 10 --log-file my_service.log
+
+  Ejecuta el servicio con un intervalo de 10 segundos. Los logs se escriben en `my_service.log`.
+
+- Ejecutar como daemon (segundo plano):
+    python planeador.py --interval 10 --log-file my_service.log --daemon
+
+  Ejecuta el servicio en segundo plano. El archivo de logs se mantiene actualizado
+  y se genera un archivo PID en `/tmp/analyzer_service.pid`.
+
+- Detener el servicio:
+    kill $(cat /tmp/analyzer_service.pid)
+"""
 
 import argparse
 import daemon
@@ -22,8 +34,16 @@ import execute
 import lockfile
 
 
-# Configuración del logger
 def setup_logging(log_file):
+    """
+    Configura el sistema de logging para registrar eventos del servicio.
+
+    Parámetros:
+        log_file (str): Ruta al archivo donde se almacenarán los logs.
+
+    Retorna:
+        None
+    """
     logging.basicConfig(
         filename=log_file,
         level=logging.INFO,
@@ -32,6 +52,19 @@ def setup_logging(log_file):
 
 
 def plan_actions(interval, log_file):
+    """
+    Ejecuta el ciclo principal del servicio: analiza alertas y ejecuta acciones.
+
+    Parámetros:
+        interval (int): Intervalo de tiempo en segundos entre cada análisis.
+        log_file (str): Ruta al archivo de logs.
+
+    Retorna:
+        None
+
+    Ejemplo:
+        plan_actions(10, 'my_service.log')
+    """
     setup_logging(log_file)
     logging.info("Servicio iniciado")
 
@@ -39,7 +72,7 @@ def plan_actions(interval, log_file):
 
     while True:
         try:
-            # Analiza las alertas
+            # Analiza las alertas a través del analizador MQTT
             alerts = analyzer.analyze()
 
             if alerts:
@@ -50,14 +83,25 @@ def plan_actions(interval, log_file):
                 execute.execute_action(alerts, True)
 
             time.sleep(interval)
+
         except Exception as e:
+            # Si ocurre un error, se registra pero no detiene el servicio
             logging.error(f"Error en el servicio: {e}")
-            time.sleep(interval)  # Continúa incluso si hay errores
+            time.sleep(interval)
 
 
 def run_service(args):
+    """
+    Ejecuta el servicio de acuerdo con los argumentos proporcionados.
+
+    Parámetros:
+        args (argparse.Namespace): Argumentos parseados desde la línea de comandos.
+
+    Retorna:
+        None
+    """
     if args.daemon:
-        # Configuración para ejecutar como daemon
+        # Ejecutar el servicio en segundo plano (modo daemon)
         pid_file = "/tmp/analyzer_service.pid"
         context = daemon.DaemonContext(
             working_directory=os.getcwd(),
@@ -71,24 +115,35 @@ def run_service(args):
             logging.info("Iniciando servicio en modo daemon")
             plan_actions(args.interval, args.log_file)
     else:
-        # Ejecutar en primer plano
+        # Ejecutar el servicio en primer plano (modo desarrollo/prueba)
         plan_actions(args.interval, args.log_file)
 
 
 def main():
+    """
+    Punto de entrada principal del script.
+
+    Procesa los argumentos de línea de comandos y lanza el servicio.
+
+    Retorna:
+        None
+    """
     parser = argparse.ArgumentParser(description="Servicio de análisis de alertas MQTT")
+
     parser.add_argument(
         '--interval',
         type=int,
         default=5,
-        help='Intervalo de monitoreo en segundos (default: 5)'
+        help='Intervalo de monitoreo en segundos (por defecto: 5)'
     )
+
     parser.add_argument(
         '--log-file',
         type=str,
         default='analyzer_service.log',
-        help='Archivo donde se guardarán los logs (default: analyzer_service.log)'
+        help='Archivo donde se guardarán los logs (por defecto: analyzer_service.log)'
     )
+
     parser.add_argument(
         '--daemon',
         action='store_true',
