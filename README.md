@@ -9,6 +9,7 @@
 [![MongoDB](https://img.shields.io/badge/Database-MongoDB-green)](https://www.mongodb.com/)
 [![LLM](https://img.shields.io/badge/LLM-Local%20AI-informational)](https://huggingface.co/)
 [![Docker](https://img.shields.io/badge/Containerized-Docker-blue)](https://www.docker.com/)
+[![React](https://img.shields.io/badge/Frontend-React-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
 
 ---
 
