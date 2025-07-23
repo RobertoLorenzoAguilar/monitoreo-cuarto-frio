@@ -246,22 +246,12 @@ http://localhost:1880/
 **Librerías recomendades para Node-Red**:
 <img width="632" height="566" alt="image" src="https://github.com/user-attachments/assets/63f2f4da-22ae-4e35-b5e7-6c2b5b02460a" />
 
+# Función Node-RED: Generador de datos simulados
 
-
-# Generador de Datos Simulados para Flujo Node-RED
-
-Este script genera datos simulados de temperatura, humedad y señal RSSI para ser enviados mediante MQTT desde un flujo de Node-RED. Se ejecuta desde un nodo `function`.
-
-### Rango de datos simulados:
-- **Temperatura (°C):** 0 a 8 (ejemplo de refrigeración veterinaria)
-- **Humedad (%):** 30 a 60
-- **RSSI:** -40 (simulado, opcional)
-- **Intervalo aleatorio:** entre 1 y 5 minutos
-
-### Código para el nodo `function`:
+Esta función puede utilizarse en un nodo `function` de Node-RED para simular datos de temperatura, humedad y otros parámetros, útiles en escenarios de monitoreo veterinario o de conservación de productos.
 
 ```javascript
-// Rango veterinario: Temperatura de conservación entre 0°C y 8°C
+// Rango veterinario: Temperatura de conservación entre 15°C y 25°C
 var minTempC = 0;
 var maxTempC = 8;
 var randomTemperatureC = parseFloat((Math.random() * (maxTempC - minTempC) + minTempC).toFixed(2));
@@ -274,17 +264,17 @@ var randomHumidity = parseFloat((Math.random() * (maxHumidity - minHumidity) + m
 // RSSI simulado (entre -40 y -70) — opcional
 var randomRSSI = -Math.floor(Math.random() * 0) - 40;
 
-// Intervalo entre 1 y 5 minutos (en milisegundos)
+// Intervalo entre 1 y 5 minutos
 var randomInterval = Math.floor(Math.random() * (5 * 60 * 1000 - 1 * 60 * 1000 + 1)) + 1 * 60 * 1000;
 
-// Obtener última fecha registrada o usar la actual
+// Obtiene la última fecha o la actual si no hay historial
 var lastDate = context.historicalData && context.historicalData.length > 0
     ? new Date(context.historicalData[context.historicalData.length - 1].fecha_hora)
     : new Date();
 
 var now = new Date(lastDate.getTime() + randomInterval); // Sumar el intervalo
 
-// Crear nueva entrada
+// Crear nuevo registro con formato simple
 var newEntry = {
     "sensor": "Sensor_A1",
     "fecha": now.toLocaleDateString(),
@@ -303,13 +293,17 @@ var newEntry = {
     "timestamp": now.toLocaleString()
 };
 
-// Guardar historial (opcional)
+// Guardar en historial si se desea
 context.historicalData = context.historicalData || [];
 context.historicalData.push(newEntry);
 
-// Enviar como payload MQTT
+// Enviar como payload
 msg.payload = newEntry;
 return msg;
+```
+
+Puedes pegar esta función en un nodo `function` dentro de Node-RED y conectarlo a un nodo `inject` (para iniciar el flujo) y un nodo `mqtt out` (para enviar los datos).
+
 
 ## 🧱 MongoDB + Mongo Express
 
