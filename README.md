@@ -246,6 +246,71 @@ http://localhost:1880/
 **Librerías recomendades para Node-Red**:
 <img width="632" height="566" alt="image" src="https://github.com/user-attachments/assets/63f2f4da-22ae-4e35-b5e7-6c2b5b02460a" />
 
+
+
+# Generador de Datos Simulados para Flujo Node-RED
+
+Este script genera datos simulados de temperatura, humedad y señal RSSI para ser enviados mediante MQTT desde un flujo de Node-RED. Se ejecuta desde un nodo `function`.
+
+### Rango de datos simulados:
+- **Temperatura (°C):** 0 a 8 (ejemplo de refrigeración veterinaria)
+- **Humedad (%):** 30 a 60
+- **RSSI:** -40 (simulado, opcional)
+- **Intervalo aleatorio:** entre 1 y 5 minutos
+
+### Código para el nodo `function`:
+
+```javascript
+// Rango veterinario: Temperatura de conservación entre 0°C y 8°C
+var minTempC = 0;
+var maxTempC = 8;
+var randomTemperatureC = parseFloat((Math.random() * (maxTempC - minTempC) + minTempC).toFixed(2));
+
+// Rango de humedad entre 30% y 60%
+var minHumidity = 30;
+var maxHumidity = 60;
+var randomHumidity = parseFloat((Math.random() * (maxHumidity - minHumidity) + minHumidity).toFixed(2));
+
+// RSSI simulado (entre -40 y -70) — opcional
+var randomRSSI = -Math.floor(Math.random() * 0) - 40;
+
+// Intervalo entre 1 y 5 minutos (en milisegundos)
+var randomInterval = Math.floor(Math.random() * (5 * 60 * 1000 - 1 * 60 * 1000 + 1)) + 1 * 60 * 1000;
+
+// Obtener última fecha registrada o usar la actual
+var lastDate = context.historicalData && context.historicalData.length > 0
+    ? new Date(context.historicalData[context.historicalData.length - 1].fecha_hora)
+    : new Date();
+
+var now = new Date(lastDate.getTime() + randomInterval); // Sumar el intervalo
+
+// Crear nueva entrada
+var newEntry = {
+    "sensor": "Sensor_A1",
+    "fecha": now.toLocaleDateString(),
+    "hora": now.toLocaleTimeString(),
+    "temperatura_c": randomTemperatureC,
+    "temperatura_f": parseFloat((randomTemperatureC * 9 / 5 + 32).toFixed(2)),
+    "humedad": randomHumidity,
+    "rssi": randomRSSI,
+    "fecha_hora": now.toLocaleString(),
+    "ip": "192.168.1.133",
+    "ssid": "Robert-Wifi",
+    "mac": "48:E7:29:A6:0B:D4",
+    "firmware": "1.0.10",
+    "interval": 5000,
+    "name": "NCD-0BD4",
+    "timestamp": now.toLocaleString()
+};
+
+// Guardar historial (opcional)
+context.historicalData = context.historicalData || [];
+context.historicalData.push(newEntry);
+
+// Enviar como payload MQTT
+msg.payload = newEntry;
+return msg;
+
 ## 🧱 MongoDB + Mongo Express
 
 Repositorio sugerido: [cataniamatt/mongodb-docker](https://github.com/cataniamatt/mongodb-docker)
