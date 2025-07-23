@@ -368,8 +368,6 @@ response = client.completions.create(
 print(response.choices[0].text)
 ```
 
----
-
 ## 📊 Herramientas de Monitoreo
 
 - `htop` para supervisar consumo del modelo.
