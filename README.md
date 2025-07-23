@@ -344,6 +344,16 @@ Esto iniciará el frontend en modo desarrollo, accesible usualmente en [http://l
 ---
 
 ### 2. Servicio MAPE-K (`planeador.py`)
+# Prerrequisitos
+
+Para instalar las dependencias necesarias para este proyecto, ejecuta siguiente comando para instalar todas las librerías:
+
+```bash
+pip install -r requirements.txt
+```
+
+Esto instalará todas las dependencias necesarias para ejecutar el proyecto correctamente.
+
 
 Ubícate en la carpeta donde está el archivo `planeador.py`.
 
