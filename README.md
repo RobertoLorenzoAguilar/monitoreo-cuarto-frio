@@ -320,9 +320,52 @@ docker model list
 
 
 
+
 ## Habilitar Grupos para el chatbot
 <img width="720" height="700" alt="image" src="https://github.com/user-attachments/assets/99763de9-b7b6-4a5b-b5f2-c675eaa0be74" />
 
+
+
+## Ejecución del Proyecto
+
+Para poner en marcha el sistema completo, asegúrate de ejecutar tanto el cliente React como el servicio de planificación MAPE-K.
+
+### 1. Cliente React
+
+Ubícate dentro del directorio `./client` y ejecuta:
+
+```bash
+npm install  # Solo si no has instalado aún las dependencias
+npm start
+```
+
+Esto iniciará el frontend en modo desarrollo, accesible usualmente en [http://localhost:3000](http://localhost:3000).
+
+---
+
+### 2. Servicio MAPE-K (`planeador.py`)
+
+Ubícate en la carpeta donde está el archivo `planeador.py`.
+
+#### 🔧 Cómo usar el servicio
+
+##### Ejecutar en primer plano (modo prueba):
+```bash
+python planeador.py --interval 10 --log-file my_service.log
+```
+Ejecuta el servicio con un intervalo de 10 segundos y guarda los logs en `my_service.log`.
+
+##### Ejecutar como daemon (segundo plano):
+```bash
+python planeador.py --interval 10 --log-file my_service.log --daemon
+```
+Esto inicia el servicio como demonio. El log se guarda en `my_service.log` y se crea un archivo PID en `/tmp/analyzer_service.pid`.
+
+##### Detener el servicio:
+Para detener el servicio ejecutado en segundo plano:
+```bash
+kill $(cat /tmp/analyzer_service.pid)
+```
 ## Referencias
 
 - **MongoDB + Mongo Express**  
