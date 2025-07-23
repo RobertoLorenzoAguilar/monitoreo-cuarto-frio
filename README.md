@@ -142,16 +142,7 @@ print(response.choices[0].text)
 ## 📋 Por Documentar 
 <img width="656" height="1086" alt="image" src="https://github.com/user-attachments/assets/0f086b81-5093-47ed-857e-08b1883d41fd" />
 
-## Arquitectura del Sistema 🏗️
-
-
-# Sistema de Monitoreo Inteligente con Contenedores
-
-Este repositorio documenta el despliegue de un sistema distribuido para monitoreo inteligente de condiciones ambientales, integración con actuadores físicos, visualización en tiempo real y procesamiento con LLMs de forma local.
-
----
-
-## 🧠 Recomendaciones de Seguridad
+## Otros 🏗️
 
 > Se activa una alerta cuando los parámetros **no** están dentro de los rangos definidos como seguros.
 
