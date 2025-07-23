@@ -254,7 +254,7 @@ Configurar WebSocket para una comunicación eficiente con el dashboard de visual
 
 ---
 
-## 🤖 LLMs Locales con Docker
+## 🤖 LLMs Locales con Docker "es necesario tener corriendo el servicio de docker“
 
 Guía útil: [Medium - Integrando Genkit y LangChain](https://jggomezt.medium.com/building-local-ai-applications-integrating-docker-model-runner-genkit-and-langchain-d0dfb4a4dfa7)
 
