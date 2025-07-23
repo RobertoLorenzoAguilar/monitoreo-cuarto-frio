@@ -318,3 +318,13 @@ docker model list
 ## Habilitar Grupos para el chatbot
 <img width="720" height="700" alt="image" src="https://github.com/user-attachments/assets/99763de9-b7b6-4a5b-b5f2-c675eaa0be74" />
 
+## Referencias
+
+- **MongoDB + Mongo Express**  
+  [https://github.com/cataniamatt/mongodb-docker](https://github.com/cataniamatt/mongodb-docker)
+
+- **Cliente React para monitoreo IoT**  
+  [https://github.com/jamalabdi2/IoT-Temperature-And-Humidity-Monitoring-System](https://github.com/jamalabdi2/IoT-Temperature-And-Humidity-Monitoring-System)
+
+- **Ejecución de modelos de IA de forma local (Docker + Genkit + LangChain)**  
+  [https://jggomezt.medium.com/building-local-ai-applications-integrating-docker-model-runner-genkit-and-langchain-d0dfb4a4dfa7](https://jggomezt.medium.com/building-local-ai-applications-integrating-docker-model-runner-genkit-and-langchain-d0dfb4a4dfa7)
