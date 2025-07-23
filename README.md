@@ -133,7 +133,7 @@ print(response.choices[0].text)
 ## 📋 TODO
 
 - [ ] Automatizar despliegue con `docker-compose up`
-- [ ] Comentar todo el código fuente
+- [ ] Comentar todo el código fuente segú pep8 de python
 - [ ] Añadir interfaz para configurar umbrales de alerta
 - [ ] Agregar un actuador físico (ej. luz/señal) vía GPIO
-- [ ] Añadir autenticación a la interfaz visual
+- [ ] Añadir autenticación a la interfaz visual un "LOGIN"
