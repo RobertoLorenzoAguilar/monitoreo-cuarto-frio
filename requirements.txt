@@ -1,0 +1,6 @@
+paho-mqtt
+pymongo
+requests
+python-daemon
+openai
+lockfile
