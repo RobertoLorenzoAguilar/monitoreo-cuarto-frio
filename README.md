@@ -308,9 +308,9 @@ print(response.choices[0].text)
 
 ```bash
 docker model list
+docker model run ai/model_name
 ```
-
-<img width="1611" height="996" alt="Modelos listados" src="https://github.com/user-attachments/assets/fb8d5a8c-6e6a-45af-844b-07ee64ee251e" />
+<img width="1373" height="254" alt="image" src="https://github.com/user-attachments/assets/090902bc-1bf4-48e1-98b8-c30ff2ee8ae4" />
 
 ---
 
