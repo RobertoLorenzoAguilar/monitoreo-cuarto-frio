@@ -305,7 +305,11 @@ return msg;
 Puedes pegar esta función en un nodo `function` dentro de Node-RED y conectarlo a un nodo `inject` (para iniciar el flujo) y un nodo `mqtt out` (para enviar los datos).
 
 
-## 🧱 MongoDB + Mongo Express
+## El RSSI (Received Signal Strength Indicator) es un indicador que mide la intensidad de la señal recibida
+<img width="1112" height="536" alt="image" src="https://github.com/user-attachments/assets/83cd4091-eef5-4140-bbf4-5f2e721cc061" />
+En resumen, incluir RSSI en tus datos mejora la robustez, trazabilidad y confiabilidad de tu sistema IoT.
+
+##  MongoDB + Mongo Express
 
 Repositorio sugerido: [cataniamatt/mongodb-docker](https://github.com/cataniamatt/mongodb-docker)
 
