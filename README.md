@@ -243,7 +243,8 @@ http://localhost:1880/
 **Simulación sensor físico en Node-RED**:
 <img width="1018" height="453" alt="image" src="https://github.com/user-attachments/assets/7bd9634a-6161-4439-bf12-9caa231c3525" />
 
-**Librerías recomendades para Node-Red**:
+
+# Librerías recomendades para Node-Red
 <img width="632" height="566" alt="image" src="https://github.com/user-attachments/assets/63f2f4da-22ae-4e35-b5e7-6c2b5b02460a" />
 
 # Función Node-RED: Generador de datos simulados
