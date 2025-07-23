@@ -443,6 +443,10 @@ Para detener el servicio ejecutado en segundo plano:
 ```bash
 kill $(cat /tmp/analyzer_service.pid)
 ```
+
+## IMPORTANTE
+- **EL CÓDIGO DE EJECUCIÓN UCULTAR INFORMACIÓN DEL TOKEN TELEGRAM**  
+
 ## Referencias
 
 - **MongoDB + Mongo Express**  
