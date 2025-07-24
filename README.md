@@ -447,6 +447,28 @@ kill $(cat /tmp/analyzer_service.pid)
 ## IMPORTANTE
 - **EL CÓDIGO DE EJECUCIÓN UCULTAR INFORMACIÓN DEL TOKEN TELEGRAM**  
 
+
+
+## 📈 Flujo General del Sistema
+
+```plaintext
+Sensores IoT o (Node-RED) --> MQTT Broker
+                    |
+                    v
+                  MAPE-K  --> Base de datos MongoDB
+                    |
+                    v
+               Motor LLM (LlamaCpp)
+                    |
+                    v
+         Recomendaciones o acciones
+```
+
+## 📌 Recomendaciones para Producción
+- Conectar Sensor Real.
+- Desplegar LLM en máquina con GPU si se requiere mayor rendimiento.
+- Añadir encriptación MQTT.
+- EL CÓDIGO DE EJECUCIÓN UCULTAR INFORMACIÓN DEL TOKEN TELEGRAM
 ## Referencias
 
 - **MongoDB + Mongo Express**  
