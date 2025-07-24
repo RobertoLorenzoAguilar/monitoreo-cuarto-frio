@@ -56,7 +56,7 @@ Este sistema distribuye la carga de monitoreo y toma de decisiones en **7 conten
 - 🧠 **IA integrada** localmente vía modelo LLM
 - 📊 **Dashboard interactivo** con histórico
 - 🔔 **Alertas** mediante Telegram solo cuando es necesario
-- 🧰 **Despliegue completo** vía Docker Compose
+- 🧰 **Despliegue completo** vía Docker 
 - 📁 **Persistencia NoSQL** con MongoDB
 
 ---
