@@ -17,7 +17,7 @@ Sistema inteligente de monitoreo ambiental para cámaras frigoríficas basado en
 
 Este sistema monitorea y gestiona cámaras frigoríficas en tiempo real utilizando una arquitectura distribuida con **7 contenedores Docker**. Captura datos ambientales (temperatura y humedad), detecta condiciones críticas, genera recomendaciones mediante un modelo de lenguaje local (LLM) y notifica a los usuarios vía Telegram. Los datos se visualizan en un dashboard interactivo basado en React.
 
-> **Nota**: Este proyecto **no utiliza Docker Compose**. Los contenedores se gestionan manualmente con comandos `docker build`, `docker run`, etc.
+> **Nota**: Este proyecto **en su mayoria no utiliza Docker Compose**. Los contenedores se gestionan manualmente con comandos `docker build`, `docker run`, etc.
 
 ---
 
