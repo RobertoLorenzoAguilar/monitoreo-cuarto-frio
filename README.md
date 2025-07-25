@@ -21,6 +21,31 @@ Este sistema monitorea y gestiona cámaras frigoríficas en tiempo real utilizan
 
 ---
 
+
+## 📑 Tabla de Contenido
+
+- [🧊 IoT Cold Room Monitoring System con IA y Contenedores](#-iot-cold-room-monitoring-system-con-ia-y-contenedores)
+- [📖 Descripción](#-descripción)
+- [🛠️ Características](#️-características)
+- [🧠 Arquitectura MAPE-K](#-arquitectura-mape-k)
+- [⚙️ Componentes](#️-componentes)
+- [📦 Tecnologías](#-tecnologías)
+- [🚀 Instalación y Configuración](#-instalación-y-configuración)
+  - [Prerrequisitos](#prerrequisitos)
+  - [1. Configurar Mosquitto (Broker MQTT)](#1-configurar-mosquitto-broker-mqtt)
+  - [2. Configurar Node-RED](#2-configurar-node-red)
+  - [3. Configurar MongoDB + Mongo Express](#3-configurar-mongodb--mongo-express)
+  - [4. Configurar el Frontend (React)](#4-configurar-el-frontend-react)
+  - [5. Configurar el Servicio MAPE-K](#5-configurar-el-servicio-mape-k)
+  - [6. Configurar el Modelo LLM](#6-configurar-el-modelo-llm)
+- [📈 Flujo de Datos](#-flujo-de-datos)
+- [📸 Capturas](#-capturas)
+- [📋 Tareas Pendientes](#-tareas-pendientes)
+- [🛡️ Recomendaciones para Producción](#️-recomendaciones-para-producción)
+- [📚 Referencias](#-referencias)
+
+---
+
 ## 🛠️ Características
 
 - 📡 Monitoreo en tiempo real vía MQTT.
