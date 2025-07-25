@@ -1,7 +1,6 @@
-
 # 🧊 IoT Cold Room Monitoring System con IA y Contenedores
 
-> Sistema inteligente de monitoreo ambiental para cámaras frigoríficas usando arquitectura MAPE-K, sensores IoT, modelo LLM local y despliegue Docker.
+Sistema inteligente de monitoreo ambiental para cámaras frigoríficas basado en la arquitectura **MAPE-K**, sensores IoT, un modelo LLM local y despliegue en contenedores Docker.
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![Node-RED](https://img.shields.io/badge/Node--RED-Enabled-red)](https://nodered.org/)
@@ -9,473 +8,292 @@
 [![MongoDB](https://img.shields.io/badge/Database-MongoDB-green)](https://www.mongodb.com/)
 [![LLM](https://img.shields.io/badge/LLM-Local%20AI-informational)](https://huggingface.co/)
 [![Docker](https://img.shields.io/badge/Containerized-Docker-blue)](https://www.docker.com/)
-[![React](https://img.shields.io/badge/Frontend-React-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
-[![LangChain](https://img.shields.io/badge/Framework-🦜🔗LangChain-blueviolet)](https://www.langchain.com/)
----
-
-## 🔥 Descripción General
-
-> ⚠️ **Nota**: Este proyecto **no utiliza Docker Compose**. Todos los contenedores se gestionan manualmente usando comandos `docker build`, `docker run`, `docker stop`, etc.
-
-
-Este sistema distribuye la carga de monitoreo y toma de decisiones en **7 contenedores colaborativos**, los cuales permiten:
-
-- Capturar datos ambientales (temperatura/humedad)
-- Detectar condiciones críticas en tiempo real
-- Generar recomendaciones usando un modelo de lenguaje local (LLM)
-- Visualizar la información y el histórico vía dashboard
-- Notificar al usuario vía Telegram
+[![React](https://img.shields.io/badge/Frontend-React-61DAFB?logo=react)](https://reactjs.org/)
+[![LangChain](https://img.shields.io/badge/Framework-LangChain-blueviolet)](https://www.langchain.com/)
 
 ---
 
-## ⚙️ Componentes Principales
+## 📖 Descripción
 
-| Componente         | Descripción                                                                 |
-|--------------------|-----------------------------------------------------------------------------|
-| **Node-RED**        | Simulador y orquestador de sensores MQTT                                   |
-| **Mosquitto Broker**| Comunicación MQTT entre sensores y procesadores                            |
-| **MongoDB + Compass** | Almacenamiento de datos históricos                                       |
-| **Dashboard React** | Visualización en tiempo real                                                |
-| **Contenedor LLM**  | Modelo de lenguaje que genera recomendaciones técnicas                     |
-| **Bot Telegram**    | Notificaciones en caso de valores fuera de rango                           |
-| **Runner Python**   | Ejecuta las acciones definidas por el modelo de IA                         |
+Este sistema monitorea y gestiona cámaras frigoríficas en tiempo real utilizando una arquitectura distribuida con **7 contenedores Docker**. Captura datos ambientales (temperatura y humedad), detecta condiciones críticas, genera recomendaciones mediante un modelo de lenguaje local (LLM) y notifica a los usuarios vía Telegram. Los datos se visualizan en un dashboard interactivo basado en React.
+
+> **Nota**: Este proyecto **no utiliza Docker Compose**. Los contenedores se gestionan manualmente con comandos `docker build`, `docker run`, etc.
+
+---
+
+## 🛠️ Características
+
+- 📡 Monitoreo en tiempo real vía MQTT.
+- 🧠 Recomendaciones inteligentes con un modelo LLM local.
+- 📊 Dashboard interactivo con histórico de datos.
+- 🔔 Notificaciones automáticas vía Telegram para alertas críticas.
+- 🧰 Despliegue contenerizado con Docker.
+- 📁 Persistencia de datos en MongoDB (NoSQL).
 
 ---
 
 ## 🧠 Arquitectura MAPE-K
 
-> Aplicación del ciclo MAPE-K (Monitor, Analyze, Plan, Execute – Knowledge) para gestionar ambientes críticos.
+El sistema implementa el ciclo **MAPE-K** (Monitor, Analyze, Plan, Execute – Knowledge) para gestionar ambientes críticos:
+
+1. **Monitor**: Captura datos de sensores simulados o físicos.
+2. **Analyze**: Evalúa condiciones contra umbrales seguros.
+3. **Plan**: Genera recomendaciones con el modelo LLM.
+4. **Execute**: Ejecuta acciones (notificaciones, ajustes).
+5. **Knowledge**: Almacena datos históricos en MongoDB.
 
 ![Arquitectura](https://github.com/user-attachments/assets/3ee01b48-c806-493b-ab15-6cc4c0a5dcb0)
 
 ---
 
-## 🔍 Características Técnicas
+## ⚙️ Componentes
 
-- 📡 **Monitoreo en tiempo real** vía MQTT
-- 🧠 **IA integrada** localmente vía modelo LLM
-- 📊 **Dashboard interactivo** con histórico
-- 🔔 **Alertas** mediante Telegram solo cuando es necesario
-- 🧰 **Despliegue completo** vía Docker 
-- 📁 **Persistencia NoSQL** con MongoDB
+| Componente           | Función                                                                 |
+|----------------------|------------------------------------------------------------------------|
+| **Node-RED**         | Simula sensores y orquesta flujos MQTT.                                |
+| **Mosquitto Broker** | Gestiona la comunicación MQTT entre sensores y procesadores.           |
+| **MongoDB**          | Almacena datos históricos.                                            |
+| **Mongo Express**    | Interfaz para visualizar datos de MongoDB.                            |
+| **Dashboard React**  | Visualización en tiempo real con WebSockets.                           |
+| **LLM Runner**       | Ejecuta el modelo de lenguaje para recomendaciones.                    |
+| **Telegram Bot**     | Envía notificaciones en caso de valores fuera de rango.                |
 
 ---
 
-## 💻 Tecnologías Usadas
+## 📦 Tecnologías
 
 - **Lenguajes**: Python 3.8+, JavaScript
-- **Frontend**: React + WebSockets
-- **Base de Datos**: MongoDB + Mongo Express
-- **Contenedores**: Docker, Docker Compose
-- **IA Local**: `ai/smollm2` vía plugin de modelos
+- **Frontend**: React, WebSockets
+- **Backend**: Node-RED, Python
+- **Base de Datos**: MongoDB, Mongo Express
+- **IA Local**: Modelo `ai/smollm2` (Hugging Face)
 - **Broker MQTT**: Eclipse Mosquitto
-- **Orquestación**: Node-RED
+- **Contenedores**: Docker
 
 ---
 
-## 📦 Contenedores en Ejecución
+## 🚀 Instalación y Configuración
 
-- `mosquitto`: Broker MQTT
-- `nodered`: Simulación y procesamiento de flujos
-- `mongodb`: Base de datos
-- `mongo-express`: Visualizador de base de datos
-- `frontend-dashboard`: Visualización React
-- `llm-runner`: Modelo LLM
-- `planner.py`: Daemon de acciones y notificaciones
+### Prerrequisitos
 
----
+- Docker instalado.
+- Node.js y npm para el frontend.
+- Python 3.8+ para el servicio MAPE-K.
+- Acceso a Telegram para configurar el bot.
 
-## 🚀 Ejemplo de Flujo de Datos
-
-1. Sensor simulado emite temperatura vía MQTT
-2. Node-RED recibe y guarda en MongoDB
-3. El sistema analiza los valores
-4. Si hay alerta:
-   - Envía notificación vía Telegram
-   - Genera recomendación vía LLM
-5. Se visualiza todo en el dashboard
-
----
-
-## 🤖 Ejemplo de Uso del Modelo LLM
-
-```python
-from openai import OpenAI
-
-client = OpenAI(
-    base_url="http://localhost:12434/engines/v1",
-    api_key="local-key"
-)
-
-response = client.completions.create(
-    model="ai/smollm2:360M-Q4_K_M",
-    prompt="¿Qué hacer si la temperatura es 2°C bajo lo esperado?",
-    max_tokens=100,
-)
-
-print(response.choices[0].text)
-```
-
----
-
-## 📸 Vistas del Proyecto
-
-### Dashboard en Tiempo Real
-
-![Dashboard 1](https://github.com/user-attachments/assets/a38aa4a7-8ebf-463f-8015-c9bfb29769db)
-![Dashboard 2](https://github.com/user-attachments/assets/609aa1cc-0dd8-41d8-86f8-df881c86df30)
-
-### Alertas Telegram
-
-![Bot Telegram](https://github.com/user-attachments/assets/5eaa731a-da88-4b74-8cb2-a7fa2f3536e3)
-
----
-
-## 📋 TODO
-
-- [ ] Automatizar despliegue con `docker-compose up`
-- [ ] Comentar todo el código fuente segú pep8 de python
-- [ ] Añadir interfaz para configurar umbrales de alerta
-- [ ] Agregar un actuador físico (ej. luz/señal) vía GPIO
-- [ ] Añadir autenticación a la interfaz visual un "LOGIN"
-
-## 📋 Por Documentar 
-<img width="656" height="1086" alt="image" src="https://github.com/user-attachments/assets/0f086b81-5093-47ed-857e-08b1883d41fd" />
-
-## Otros 🏗️
-
-> Se activa una alerta cuando los parámetros **no** están dentro de los rangos definidos como seguros.
-
-<img width="656" height="945" alt="Recomendación de seguridad" src="https://github.com/user-attachments/assets/6acac98e-9750-4756-86c4-c15d226acd64" />
-
----
-
-## 🏗️ Arquitectura General
-
-> Diagrama de distribución y comunicación entre contenedores y servicios.
-
-<img width="1055" height="720" alt="Arquitectura" src="https://github.com/user-attachments/assets/3ee01b48-c806-493b-ab15-6cc4c0a5dcb0" />
-
----
-
-## 🚧 NICE TO DO
-
-- [ ] Comentar adecuadamente el código fuente.
-- [ ] Ejecutar cliente en modo producción (`npm start`) en lugar de `dev`.
-- [ ] Crear un lanzador de servicios.
-- [ ] Integrar sistema de alertas vía Telegram.
-- [ ] Activar un actuador físico (foco o semáforo) si hay valores fuera de rango.
-
----
-
-## 🐳 Mosquitto en Docker
-
-1. **Crear contenedor Mosquitto**:
+### 1. Configurar Mosquitto (Broker MQTT)
 
 ```bash
+# Crear contenedor
 docker run -d --name mosquitto-container -p 1883:1883 -p 9001:9001 eclipse-mosquitto
-```
 
-2. **Acceder al contenedor**:
-
-```bash
+# Acceder al contenedor
 docker exec -it mosquitto-container /bin/sh
-```
 
-3. **Instalar herramientas para edición**:
-
-```bash
+# Instalar nano
 apk update && apk add nano
-```
 
-4. **Editar configuración**:
-
-```bash
+# Editar configuración
 nano mosquitto/config/mosquitto.conf
 ```
 
-Descomenta y configura lo siguiente:
-
+Configura el archivo `mosquitto.conf`:
 ```
 allow_anonymous true
-
 listener 1883 0.0.0.0
 protocol mqtt
-
 listener 9001
 protocol websockets
 ```
 
-5. **Reiniciar contenedor**:
-
+Reinicia el contenedor:
 ```bash
 docker restart mosquitto-container
 ```
 
-6. **Prueba de suscripción/publicación MQTT**:
+Habilita reinicio automático:
+```bash
+docker update --restart unless-stopped mosquitto-container
+```
 
+Prueba MQTT:
 ```bash
 mosquitto_sub -h 192.168.16.76 -t "prueba/robert"
 mosquitto_pub -h localhost -p 1883 -t "prueba/robert" -m "¡Hola MQTT desde Docker!"
 ```
 
-5. **Mantener contenedor corriendo una vez que se reinicia el servidor**:
+### 2. Configurar Node-RED
 
 ```bash
-docker update --restart unless-stopped mosquitto-container
-```
----
-
-## 🧰 Node-RED
-
-1. **Ejecutar Node-RED en contenedor**:
-
-```bash
+# Crear contenedor
 docker run -d -p 1880:1880 --name mynodered nodered/node-red
 ```
 
-2. **Gestionar flujos** desde el navegador:
-```
-http://localhost:1880/
-```
+Accede a Node-RED en: `http://localhost:1880`
 
----
-**Simulación sensor físico en Node-RED**:
-<img width="1018" height="453" alt="image" src="https://github.com/user-attachments/assets/7bd9634a-6161-4439-bf12-9caa231c3525" />
+#### Generador de Datos Simulados (Node-RED)
 
-
-# Librerías recomendades para Node-Red
-<img width="632" height="566" alt="image" src="https://github.com/user-attachments/assets/63f2f4da-22ae-4e35-b5e7-6c2b5b02460a" />
-
-# Función Node-RED: Generador de datos simulados
-
-Esta función puede utilizarse en un nodo `function` de Node-RED para simular datos de temperatura, humedad y otros parámetros, útiles en escenarios de monitoreo veterinario o de conservación de productos.
+Copia este código en un nodo `function` para simular datos de sensores:
 
 ```javascript
-// Rango veterinario: Temperatura de conservación entre 15°C y 25°C
-var minTempC = 0;
-var maxTempC = 8;
+// Simula temperatura (0-8°C) y humedad (30-60%)
+var minTempC = 0, maxTempC = 8;
+var minHumidity = 30, maxHumidity = 60;
 var randomTemperatureC = parseFloat((Math.random() * (maxTempC - minTempC) + minTempC).toFixed(2));
-
-// Rango de humedad entre 30% y 60%
-var minHumidity = 30;
-var maxHumidity = 60;
 var randomHumidity = parseFloat((Math.random() * (maxHumidity - minHumidity) + minHumidity).toFixed(2));
-
-// RSSI simulado (entre -40 y -70) — opcional
 var randomRSSI = -Math.floor(Math.random() * 0) - 40;
-
-// Intervalo entre 1 y 5 minutos
 var randomInterval = Math.floor(Math.random() * (5 * 60 * 1000 - 1 * 60 * 1000 + 1)) + 1 * 60 * 1000;
 
-// Obtiene la última fecha o la actual si no hay historial
 var lastDate = context.historicalData && context.historicalData.length > 0
     ? new Date(context.historicalData[context.historicalData.length - 1].fecha_hora)
     : new Date();
+var now = new Date(lastDate.getTime() + randomInterval);
 
-var now = new Date(lastDate.getTime() + randomInterval); // Sumar el intervalo
-
-// Crear nuevo registro con formato simple
 var newEntry = {
-    "sensor": "Sensor_A1",
-    "fecha": now.toLocaleDateString(),
-    "hora": now.toLocaleTimeString(),
-    "temperatura_c": randomTemperatureC,
-    "temperatura_f": parseFloat((randomTemperatureC * 9 / 5 + 32).toFixed(2)),
-    "humedad": randomHumidity,
-    "rssi": randomRSSI,
-    "fecha_hora": now.toLocaleString(),
-    "ip": "192.168.1.133",
-    "ssid": "Robert-Wifi",
-    "mac": "48:E7:29:A6:0B:D4",
-    "firmware": "1.0.10",
-    "interval": 5000,
-    "name": "NCD-0BD4",
-    "timestamp": now.toLocaleString()
+    sensor: "Sensor_A1",
+    fecha: now.toLocaleDateString(),
+    hora: now.toLocaleTimeString(),
+    temperatura_c: randomTemperatureC,
+    temperatura_f: parseFloat((randomTemperatureC * 9 / 5 + 32).toFixed(2)),
+    humedad: randomHumidity,
+    rssi: randomRSSI,
+    fecha_hora: now.toLocaleString(),
+    ip: "192.168.1.133",
+    ssid: "Robert-Wifi",
+    mac: "48:E7:29:A6:0B:D4",
+    firmware: "1.0.10",
+    interval: 5000,
+    name: "NCD-0BD4",
+    timestamp: now.toLocaleString()
 };
 
-// Guardar en historial si se desea
 context.historicalData = context.historicalData || [];
 context.historicalData.push(newEntry);
-
-// Enviar como payload
 msg.payload = newEntry;
 return msg;
 ```
 
-Puedes pegar esta función en un nodo `function` dentro de Node-RED y conectarlo a un nodo `inject` (para iniciar el flujo) y un nodo `mqtt out` (para enviar los datos).
+Conecta a un nodo `inject` y un nodo `mqtt out`.
 
+### 3. Configurar MongoDB + Mongo Express
 
-## El RSSI (Received Signal Strength Indicator) es un indicador que mide la intensidad de la señal recibida
-<img width="1112" height="536" alt="image" src="https://github.com/user-attachments/assets/83cd4091-eef5-4140-bbf4-5f2e721cc061" />
-En resumen, incluir RSSI en tus datos mejora la robustez, trazabilidad y confiabilidad de tu sistema IoT.
+Usa el repositorio: [cataniamatt/mongodb-docker](https://github.com/cataniamatt/mongodb-docker).
 
-##  MongoDB + Mongo Express
+Credenciales sugeridas para MongoDB Compass:
+- **Usuario**: admin
+- **Contraseña**: pass
 
-Repositorio sugerido: [cataniamatt/mongodb-docker](https://github.com/cataniamatt/mongodb-docker)
+### 4. Configurar el Frontend (React)
 
-Autenticación sugerida para MongoDB Compass:
-- **Usuario:** admin
-- **Contraseña:** pass
+En el directorio `./client`:
 
-<img width="623" height="321" alt="MongoDB Compass" src="https://github.com/user-attachments/assets/1920c777-8930-4557-aaa2-a8ec98d6d479" />
+```bash
+npm install
+npm start
+```
 
----
+Accede al dashboard en: `http://localhost:3000`
 
-## 🌐 Comunicación WebSocket
+### 5. Configurar el Servicio MAPE-K
 
-Configurar WebSocket para una comunicación eficiente con el dashboard de visualización en tiempo real.
+Instala dependencias:
+```bash
+pip install -r requirements.txt
+```
 
----
+Ejecuta en modo prueba:
+```bash
+python planeador.py --interval 10 --log-file my_service.log
+```
 
-## 🤖 LLMs Locales con Docker "es necesario tener corriendo el servicio de docker“
+Ejecuta como daemon:
+```bash
+python planeador.py --interval 10 --log-file my_service.log --daemon
+```
 
-Guía útil: [Medium - Integrando Genkit y LangChain](https://jggomezt.medium.com/building-local-ai-applications-integrating-docker-model-runner-genkit-and-langchain-d0dfb4a4dfa7)
+Detén el servicio:
+```bash
+kill $(cat /tmp/analyzer_service.pid)
+```
 
-### Instalación del plugin de modelos:
+> **Importante**: Oculta el token del bot de Telegram en el código de producción.
 
+### 6. Configurar el Modelo LLM
+
+Instala el plugin de modelos:
 ```bash
 sudo apt-get update
 sudo apt-get install docker-model-plugin
 ```
 
-### Probar instalación:
-
+Prueba la instalación:
 ```bash
 docker model version
 docker model run ai/smollm2
 ```
 
-Modelo en DockerHub: [ai/smollm2](https://hub.docker.com/r/ai/smollm2)
-
-### Ejemplo de uso:
-
+Ejemplo de uso del LLM:
 ```python
 from openai import OpenAI
 
-client = OpenAI(
-    base_url="http://localhost:12434/engines/v1",
-    api_key="local-key"
-)
-
+client = OpenAI(base_url="http://localhost:12434/engines/v1", api_key="local-key")
 response = client.completions.create(
     model="ai/smollm2:360M-Q4_K_M",
-    prompt="¿Recomendación climatica?",
+    prompt="¿Qué hacer si la temperatura es 2°C bajo lo esperado?",
     max_tokens=100,
 )
-
 print(response.choices[0].text)
 ```
 
-## 📊 Herramientas de Monitoreo
+---
 
-- `htop` para supervisar consumo del modelo.
-- Evaluar coherencia de las respuestas.
-- Listar modelos disponibles:
+## 📈 Flujo de Datos
 
-```bash
-docker model list
-docker model run ai/model_name
-```
-<img width="1373" height="254" alt="image" src="https://github.com/user-attachments/assets/090902bc-1bf4-48e1-98b8-c30ff2ee8ae4" />
+1. Los sensores (físicos o simulados en Node-RED) envían datos vía MQTT.
+2. Node-RED procesa y almacena datos en MongoDB.
+3. El sistema MAPE-K analiza los datos y detecta anomalías.
+4. Si hay alertas:
+   - Se envía una notificación vía Telegram.
+   - El LLM genera recomendaciones.
+5. El dashboard React muestra datos en tiempo real.
 
 ---
 
+## 📸 Capturas
 
-## Cuarto Frio Bot Alertas
-<img width="983" height="948" alt="image" src="https://github.com/user-attachments/assets/5eaa731a-da88-4b74-8cb2-a7fa2f3536e3" />
+### Dashboard
+![Dashboard 1](https://github.com/user-attachments/assets/a38aa4a7-8ebf-463f-8015-c9bfb29769db)
+![Dashboard 2](https://github.com/user-attachments/assets/609aa1cc-0dd8-41d8-86f8-df881c86df30)
 
+### Alertas Telegram
+![Bot Telegram](https://github.com/user-attachments/assets/5eaa731a-da88-4b74-8cb2-a7fa2f3536e3)
 
-
-
-## Habilitar Grupos para el chatbot
-<img width="720" height="700" alt="image" src="https://github.com/user-attachments/assets/99763de9-b7b6-4a5b-b5f2-c675eaa0be74" />
-
-
-
-## Ejecución del Proyecto
-
-Para poner en marcha el sistema completo, asegúrate de ejecutar tanto el cliente React como el servicio de planificación MAPE-K.
-
-### 1. Cliente React
-
-Ubícate dentro del directorio `./client` y ejecuta:
-
-```bash
-npm install  # Solo si no has instalado aún las dependencias
-npm start
-```
-
-Esto iniciará el frontend en modo desarrollo, accesible usualmente en [http://localhost:3000](http://localhost:3000).
+### Simulación en Node-RED
+![Simulación](https://github.com/user-attachments/assets/7bd9634a-6161-4439-bf12-9caa231c3525)
 
 ---
 
-### 2. Servicio MAPE-K (`planeador.py`)
-# Prerrequisitos
+## 📋 Tareas Pendientes
 
-Para instalar las dependencias necesarias para este proyecto, ejecuta siguiente comando para instalar todas las librerías:
+- [ ] Automatizar despliegue con `docker-compose`.
+- [ ] Comentar el código según PEP 8.
+- [ ] Añadir interfaz para configurar umbrales de alerta.
+- [ ] Integrar actuadores físicos (ej. luces vía GPIO).
+- [ ] Implementar autenticación en el dashboard.
 
-```bash
-pip install -r requirements.txt
-```
+---
 
-Esto instalará todas las dependencias necesarias para ejecutar el proyecto correctamente.
+## 🛡️ Recomendaciones para Producción
 
+- Conectar sensores físicos.
+- Desplegar el LLM en una máquina con GPU para mejor rendimiento.
+- Habilitar encriptación en MQTT.
+- Ocultar el token de Telegram en variables de entorno.
 
-Ubícate en la carpeta donde está el archivo `planeador.py`.
+---
 
-#### 🔧 Cómo usar el servicio
+## 📚 Referencias
 
-##### Ejecutar en primer plano (modo prueba):
-```bash
-python planeador.py --interval 10 --log-file my_service.log
-```
-Ejecuta el servicio con un intervalo de 10 segundos y guarda los logs en `my_service.log`.
-
-##### Ejecutar como daemon (segundo plano):
-```bash
-python planeador.py --interval 10 --log-file my_service.log --daemon
-```
-Esto inicia el servicio como demonio. El log se guarda en `my_service.log` y se crea un archivo PID en `/tmp/analyzer_service.pid`.
-
-##### Detener el servicio:
-Para detener el servicio ejecutado en segundo plano:
-```bash
-kill $(cat /tmp/analyzer_service.pid)
-```
-
-## IMPORTANTE
-- **EL CÓDIGO DE EJECUCIÓN UCULTAR INFORMACIÓN DEL TOKEN TELEGRAM**  
-
-
-
-## 📈 Flujo General del Sistema
-
-```plaintext
-Sensores IoT o (Node-RED) --> MQTT Broker
-                    |
-                    v
-                  MAPE-K  --> Base de datos MongoDB
-                    |
-                    v
-               Motor LLM (LlamaCpp)
-                    |
-                    v
-         Recomendaciones o acciones
-```
-
-## 📌 Recomendaciones para Producción
-- Conectar Sensor Real.
-- Desplegar LLM en máquina con GPU si se requiere mayor rendimiento.
-- Añadir encriptación MQTT.
-- EL CÓDIGO DE EJECUCIÓN UCULTAR INFORMACIÓN DEL TOKEN TELEGRAM
-## Referencias
-
-- **MongoDB + Mongo Express**  
-  [https://github.com/cataniamatt/mongodb-docker](https://github.com/cataniamatt/mongodb-docker)
-
-- **Cliente React para monitoreo IoT**  
-  [https://github.com/jamalabdi2/IoT-Temperature-And-Humidity-Monitoring-System](https://github.com/jamalabdi2/IoT-Temperature-And-Humidity-Monitoring-System)
-
-- **Ejecución de modelos de IA de forma local (Docker + Genkit + LangChain)**  
-  [https://jggomezt.medium.com/building-local-ai-applications-integrating-docker-model-runner-genkit-and-langchain-d0dfb4a4dfa7](https://jggomezt.medium.com/building-local-ai-applications-integrating-docker-model-runner-genkit-and-langchain-d0dfb4a4dfa7)
+- [MongoDB + Mongo Express](https://github.com/cataniamatt/mongodb-docker)
+- [Cliente React para IoT](https://github.com/jamalabdi2/IoT-Temperature-And-Humidity-Monitoring-System)
+- [Modelos de IA Local con Docker](https://jggomezt.medium.com/building-local-ai-applications-integrating-docker-model-runner-genkit-and-langchain-d0dfb4a4dfa7)
