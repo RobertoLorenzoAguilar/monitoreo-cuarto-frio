@@ -268,8 +268,10 @@ print(response.choices[0].text)
 ### Recomendación LLM
 <img width="656" height="945" alt="468308637-6acac98e-9750-4756-86c4-c15d226acd64" src="https://github.com/user-attachments/assets/242df1e9-dcb2-4941-8435-7311be3a5da0" />
 
-
 ### Alertas Telegram
+<img width="656" height="1086" alt="469495696-0f086b81-5093-47ed-857e-08b1883d41fd" src="https://github.com/user-attachments/assets/8b4358c5-26aa-4779-916e-241e97f81b38" />
+
+### Habilitar Grupos Telegram
 ![Bot Telegram](https://github.com/user-attachments/assets/5eaa731a-da88-4b74-8cb2-a7fa2f3536e3)
 
 ### Simulación en Node-RED
