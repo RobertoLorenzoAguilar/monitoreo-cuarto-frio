@@ -38,8 +38,8 @@ El sistema implementa el ciclo **MAPE-K** (Monitor, Analyze, Plan, Execute – K
 
 1. **Monitor**: Captura datos de sensores simulados o físicos.
 2. **Analyze**: Evalúa condiciones contra umbrales seguros.
-3. **Plan**: Genera recomendaciones con el modelo LLM.
-4. **Execute**: Ejecuta acciones (notificaciones, ajustes).
+3. **Plan**: Orquesta el Ejecutor de acciones.
+4. **Execute**: Genera recomendaciones con el modelo LLM, Ejecuta acciones (notificaciones, ajustes).
 5. **Knowledge**: Almacena datos históricos en MongoDB.
 
 ![Arquitectura](https://github.com/user-attachments/assets/3ee01b48-c806-493b-ab15-6cc4c0a5dcb0)
@@ -250,8 +250,8 @@ print(response.choices[0].text)
 ## 📈 Flujo de Datos
 
 1. Los sensores (físicos o simulados en Node-RED) envían datos vía MQTT.
-2. Node-RED procesa y almacena datos en MongoDB.
-3. El sistema MAPE-K analiza los datos y detecta anomalías.
+2. Node-RED simula sensor por MQTT.
+3. El sistema MAPE-K analiza los datos, detecta anomalías y almacena datos en MongoDB.
 4. Si hay alertas:
    - Se envía una notificación vía Telegram.
    - El LLM genera recomendaciones.
