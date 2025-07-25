@@ -278,6 +278,9 @@ print(response.choices[0].text)
 ### Simulación en Node-RED
 ![Simulación](https://github.com/user-attachments/assets/7bd9634a-6161-4439-bf12-9caa231c3525)
 
+### Paquetes recomendados para Node-RED
+<img width="644" height="560" alt="image" src="https://github.com/user-attachments/assets/586c59c7-475b-48e1-937a-c5a7fe6332a0" />
+
 ---
 
 ## 📋 Tareas Pendientes
