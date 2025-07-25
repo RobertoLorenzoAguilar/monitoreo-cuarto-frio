@@ -265,6 +265,10 @@ print(response.choices[0].text)
 ![Dashboard 1](https://github.com/user-attachments/assets/a38aa4a7-8ebf-463f-8015-c9bfb29769db)
 ![Dashboard 2](https://github.com/user-attachments/assets/609aa1cc-0dd8-41d8-86f8-df881c86df30)
 
+### Recomendación LLM
+<img width="656" height="945" alt="468308637-6acac98e-9750-4756-86c4-c15d226acd64" src="https://github.com/user-attachments/assets/242df1e9-dcb2-4941-8435-7311be3a5da0" />
+
+
 ### Alertas Telegram
 ![Bot Telegram](https://github.com/user-attachments/assets/5eaa731a-da88-4b74-8cb2-a7fa2f3536e3)
 
