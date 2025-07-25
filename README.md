@@ -42,6 +42,7 @@ El sistema implementa el ciclo **MAPE-K** (Monitor, Analyze, Plan, Execute – K
 4. **Execute**: Genera recomendaciones con el modelo LLM, Ejecuta acciones (notificaciones, ajustes).
 5. **Knowledge**: Almacena datos históricos en MongoDB.
 
+## Distribución Contenedores
 ![Arquitectura](https://github.com/user-attachments/assets/3ee01b48-c806-493b-ab15-6cc4c0a5dcb0)
 
 ---
