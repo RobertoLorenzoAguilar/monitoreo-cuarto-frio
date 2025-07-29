@@ -12,6 +12,7 @@ Sistema inteligente de monitoreo ambiental para cámaras frigoríficas basado en
 [![LangChain](https://img.shields.io/badge/Framework-LangChain-blueviolet)](https://www.langchain.com/)
 
 ---
+![Recording 2025-07-29 at 09 33 39](https://github.com/user-attachments/assets/e13fc2bf-1cba-4073-a96c-a60fcf59f9ce)
 
 ## 📖 Descripción
 
