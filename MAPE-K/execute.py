@@ -34,7 +34,7 @@ MQTT_TOPIC = "cuartofrio/recomendaciones"
 
 # === Configuración Telegram ===
 # Token y chat_id deben mantenerse confidenciales
-TOKEN = '6517578549:AAGV8R5CpgvtltIwaQTlG6V0kPN9dZSfxa8'
+TOKEN = '£££££££££££££££££££££££££££££££££££££££££££'
 URL = f'https://api.telegram.org/bot{TOKEN}/sendMessage'
 
 # === Cliente MQTT ===
