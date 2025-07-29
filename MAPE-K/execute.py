@@ -141,9 +141,9 @@ def envio_mensaje_grupo_telegram(message: str):
 
     Returns:
         None
-    """
-    bot_token = '7566541429:AAECRitrvyX35x53dLsUV3-etEqVPAHnTB8'
-    chat_id = '-4813338698'  # Canal o grupo de destino
+    """ 
+    bot_token = '£££££££££££££££££££££££££££££££££££££££££££'  # poner el tokem del bot propio
+    chat_id = '-£££££££££££££££'  # Canal o grupo de destino
     url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
     
     payload = {
