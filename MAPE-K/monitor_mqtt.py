@@ -58,8 +58,8 @@ class MQTTMonitor:
         self.topic = topic
 
         # MongoDB autenticación y conexión
-        mongo_user = "admin"
-        mongo_pwd = "Grupac123*"
+        mongo_user = "usr"
+        mongo_pwd = "password_name"
         mongo_host = "192.168.10.175"
         mongo_port = 27017
         mongo_db = "almacen_db"
